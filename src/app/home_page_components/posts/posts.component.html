@@ -1,0 +1,33 @@
+<div id="main">
+
+
+  <div   class="row" style="display: flex; justify-content: center">
+
+
+      <app-sidebar class="col-lg-4" style="background-color:black; flex-grow: 5;"></app-sidebar>
+
+
+
+    <div   id="qwe1" class="col-lg-4" style="flex-grow:5;">
+        <div *ngFor="let post of posts">
+          <app-post [post]="post.post"></app-post>
+      </div>
+    </div>
+
+    <div class="col-lg-4   " style="background-color: black; flex-grow: 3;">
+    <!--      stickyBar-->
+    <app-stickybar></app-stickybar>
+    </div>
+
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+

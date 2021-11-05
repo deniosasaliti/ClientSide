@@ -1,0 +1,61 @@
+
+
+#flex-container {
+  overflow: hidden !important;
+  position: relative !important;
+  -webkit-box-flex: inherit !important;
+  flex-grow: 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-content: center;
+
+}
+
+
+
+
+#qwe1 {
+  overflow: hidden;
+}
+#qwe1:hover{
+  overflow-y: auto;
+}
+
+
+
+
+.box div {
+  width: 500px;
+  height: 500px;
+}
+
+#main{
+  margin-top: 56px;
+}
+.rowPost{
+  overflow: hidden !important;
+  position: relative !important;
+  -webkit-box-flex: 1 !important;
+  flex-grow: 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#content {
+  display: flex;
+
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
+.card{
+  width: 100px;
+  height: 200px;
+  margin-top: inherit;
+}
+
