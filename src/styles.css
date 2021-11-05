@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+body   {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+
+}
+
+html{
+
+}
+
+
+::-webkit-scrollbar {
+  width: 30px;
+  display: block;
+  position: relative;
+
+
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 15px;
+  width: 20px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 10px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 15px;
+  display: block;
+  position: relative;
+  border:  10px solid transparent;
+  z-index: -1;
+  background: 	linear-gradient(top, transparent 5px, black 5px, black 50%, transparent 50%),	linear-gradient(bottom, transparent 5px, black 5px, black 50%, transparent 50%),
+  radial-gradient(circle, black 5px, transparent 5px) -2px 59%,
+  radial-gradient(circle, black 5px, transparent 5px) -2px 41%;
+  background-size: 100% 100%, 100% 100%, 15px 50%, 15px 50%;
+  background-clip: padding-box;
+
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+
+}
+
+
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;
+}
+
+
+
+
+

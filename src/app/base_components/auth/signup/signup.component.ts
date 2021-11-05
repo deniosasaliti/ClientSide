@@ -9,7 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class SignupComponent implements OnInit {
 
-   signupForm: FormGroup;
+  signupForm: FormGroup;
 
   constructor() { }
 
@@ -29,5 +29,9 @@ export class SignupComponent implements OnInit {
   }
   get username()  {
     return this.signupForm.get("username");
+  }
+
+  signup() {
+
   }
 }

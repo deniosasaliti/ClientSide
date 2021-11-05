@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav  class="sidebar">
+    <ng-template #elseBlockFavorite>
+      <a href="#" (click)="hideFavorite()">скрыть</a>
+    </ng-template>
+    <ng-template #elseBlockRecommended>
+      <a href="#" (click)="hideRecommended()">скрыть</a>
+    </ng-template>
+    <ul class="list-unstyled components">
+
+
+      <p class="sidebar-header">Популярные сериалы</p>
+
+      <li  *ngFor="let fav of favorite; index as i">
+
+
+        <div *ngIf="i < bundleFavorite ">
+          <a  href="#">{{fav}}</a>
+        </div>
+
+      </li>
+
+      <div class="row" *ngIf="favorite.length > bundleFavorite; else elseBlockFavorite">
+        <a class="col" href="#" (click)="upFavorite()">показать еще</a>
+        <div class="col" *ngIf="bundleFavorite > 3">
+          <a href="#" (click)="hideFavorite()">скрыть</a>
+        </div>
+
+<!--////////////////////////////-->
+
+<!--        /////////////////////////-->
+
+      </div>
+
+    </ul>
+    <ul class="list-unstyled components">
+
+
+        <p class="sidebar-header">Рекомендуемые сериалы</p>
+
+      <li  *ngFor="let rec of recommended; index as i">
+
+
+        <div *ngIf="i < bundleRecommended">
+          <a  href="#">{{rec}}</a>
+        </div>
+
+      </li>
+
+      <div class="row" *ngIf="recommended.length > bundleRecommended; else elseBlockRecommended">
+        <a class="col" href="#" (click)="upRecommended()">показать еще</a>
+        <div class="col" *ngIf="bundleRecommended > 4">
+          <a href="#" (click)="hideRecommended()">скрыть</a>
+        </div>
+      </div>
+
+    </ul>
+  </nav>
+</div>

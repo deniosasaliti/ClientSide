@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col-md-6 mx-auto text-center">
+    <div class="header-title">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="myform form ">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <div class="form-group">
+            <input  type="text" [formControlName]="'username'" name="username"  class="form-control my-input" id="username" placeholder="username">
+            <span *ngIf="username && !username.valid && username.touched">
+                                    Please provide a valid username
+            </span>
+          </div>
+          <div class="form-group">
+            <input   type="text" [formControlName]="'email'" name="email"  class="form-control my-input" id="email" placeholder="email">
+            <span *ngIf="email && !email.valid && email.touched">
+                                    Please provide a valid email
+            </span>
+
+          </div>
+          <div class="form-group">
+            <input type="text" [formControlName]="'password'"  name="password" id="password"  class="form-control my-input" placeholder="password">
+            <span *ngIf="password && !password.valid && password.touched">
+                                    Please provide a valid password
+            </span>
+          </div>
+          <div class="text-center ">
+            <button type="submit" class=" btn btn-block send-button tx-tfm">Sign-up</button>
+          </div>
+          <div class="col-md-12 ">
+            <div class="login-or">
+              <hr class="hr-or">
+              <span class="span-or">or</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-block g-button" href="#">
+              <i class="fa fa-google"></i> Sign up with Google
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
