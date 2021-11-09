@@ -1,0 +1,22 @@
+.input-group{
+  width: 30% ;
+}
+.navbar-brand:hover{
+  cursor: pointer;
+}
+
+.navbar-brand{
+  padding: 0;
+  margin: 0;
+}
+
+.hover-search:hover{
+  border:1px solid silver;
+}
+
+.form-control{
+  border: none;
+}
+::placeholder {
+  color: white;
+}

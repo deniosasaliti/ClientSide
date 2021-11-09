@@ -13,6 +13,8 @@ import { PostsComponent } from './home_page_components/posts/posts.component';
 import { LoginComponent } from './base_components/auth/login/login.component';
 import { SidebarComponent } from './base_components/sidebar/sidebar.component';
 import { StickybarComponent } from './base_components/stickybar/stickybar.component';
+import { SerialsComponent } from './home_page_components/serials/serials.component';
+import { SerialComponent } from './base_components/serial/serial.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { StickybarComponent } from './base_components/stickybar/stickybar.compon
     LoginComponent,
     SidebarComponent,
     StickybarComponent,
-    CommentComponent
+    CommentComponent,
+    SerialsComponent,
+    SerialComponent
   ],
   imports: [
     BrowserModule,

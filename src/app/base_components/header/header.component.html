@@ -1,27 +1,29 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Navssbar</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="navbar-brand" >
+    <a href="/" style="height: inherit;width: inherit">
+    <img  src="https://static4.depositphotos.com/1009966/322/i/600/depositphotos_3222439-stock-photo-9nineshine-green.jpg" style="height: inherit;
+      width:45px;
+      " alt="">
+    </a>
+    </div>
+    <div>
+      <a class="ml-2" routerLink="serials" style="color: white">Сериалы</a>
+    </div>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <div>
+    <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
+      <div   class="input-group  " style="margin-right: 28%;margin-left: 30%">
+        <input class="form-control hover-search" type="text" placeholder="Поиск" aria-label="Enter search term..." aria-describedby="button-search" style="background-color: black" />
+        <button class="btn btn-primary" id="button-search" type="button">Поиск</button>
+      </div>
+
+
+<!--      login and signup-->
+      <div class="mr-2">
         <a routerLink="sign-up" class="btn btn-outline-success my-2 my-sm-0">Sign up</a>
       </div>
-      <div>
-        <a routerLink="log-in" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
+      <div class="mr-2">
+        <a routerLink="login" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
       </div>
     </div>
   </nav>

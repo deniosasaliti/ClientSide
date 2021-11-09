@@ -24,8 +24,8 @@
   left: 0;
   height:100%;
   transition: all 0.3s;
-  background: #7386D5;
-  color: #fff;
+  background-color:rgba(110,110,110,0.19);
+  color: white;
   overflow-y: hidden;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   padding-bottom: 60px;
@@ -66,7 +66,7 @@ a, a:hover, a:focus {
 
 
 .sidebar .sidebar-header {
-  background: #6d7fcc;
+  background-color: inherit;
 }
 
 .components {
@@ -88,10 +88,7 @@ a, a:hover, a:focus {
   background: #fff;
 }
 
-.sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: #6d7fcc;
-}
+
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
@@ -104,4 +101,6 @@ ul ul a {
 }
 
 
-
+a:hover{
+  cursor: pointer;
+}

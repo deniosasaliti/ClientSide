@@ -2,10 +2,10 @@
   <!-- Sidebar -->
   <nav  class="sidebar">
     <ng-template #elseBlockFavorite>
-      <a href="#" (click)="hideFavorite()">скрыть</a>
+      <a  (click)="hideFavorite()">скрыть</a>
     </ng-template>
     <ng-template #elseBlockRecommended>
-      <a href="#" (click)="hideRecommended()">скрыть</a>
+      <a  (click)="hideRecommended()">скрыть</a>
     </ng-template>
     <ul class="list-unstyled components">
 
@@ -16,15 +16,15 @@
 
 
         <div *ngIf="i < bundleFavorite ">
-          <a  href="#">{{fav}}</a>
+          <a>{{fav}}</a>
         </div>
 
       </li>
 
       <div class="row" *ngIf="favorite.length > bundleFavorite; else elseBlockFavorite">
-        <a class="col" href="#" (click)="upFavorite()">показать еще</a>
+        <a class="col"  (click)="upFavorite()">показать еще</a>
         <div class="col" *ngIf="bundleFavorite > 3">
-          <a href="#" (click)="hideFavorite()">скрыть</a>
+          <a  (click)="hideFavorite()">скрыть</a>
         </div>
 
 <!--////////////////////////////-->
@@ -43,15 +43,15 @@
 
 
         <div *ngIf="i < bundleRecommended">
-          <a  href="#">{{rec}}</a>
+          <a>{{rec}}</a>
         </div>
 
       </li>
 
       <div class="row" *ngIf="recommended.length > bundleRecommended; else elseBlockRecommended">
-        <a class="col" href="#" (click)="upRecommended()">показать еще</a>
+        <a class="col" (click)="upRecommended()">показать еще</a>
         <div class="col" *ngIf="bundleRecommended > 4">
-          <a href="#" (click)="hideRecommended()">скрыть</a>
+          <a  (click)="hideRecommended()">скрыть</a>
         </div>
       </div>
 

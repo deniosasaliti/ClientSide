@@ -5,7 +5,7 @@ body   {
 }
 
 html{
-
+ background-color: black;
 }
 
 
@@ -20,14 +20,14 @@ html{
 ::-webkit-scrollbar-track {
   border-radius: 15px;
   width: 20px;
-  border-color: transparent;
+  border-color: gold;
   border-style: solid;
-  border-width: 10px;
+  border-width: 5px;
 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: black;
+  background: green;
   border-radius: 15px;
   display: block;
   position: relative;
