@@ -1,0 +1,17 @@
+.flex-grow{
+  height: 100% !important;
+  width: 100% !important;
+}
+
+a:hover{
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.a-hover:hover{
+  color: red;
+  cursor: pointer;
+}
+
+

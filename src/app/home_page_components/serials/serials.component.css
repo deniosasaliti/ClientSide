@@ -1,0 +1,15 @@
+.card-list{
+  float: left;
+}
+
+#div_page{
+  margin-top: 56px;
+}
+.flex-grow{
+  height: 100% !important;
+  width: 100% !important;
+}
+
+li{
+  float: left;
+}
