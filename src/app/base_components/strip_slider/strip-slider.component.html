@@ -1,0 +1,28 @@
+<div style="margin-top: 56px">
+
+  <button class="next" [style.Visibility]="visibleNext" (click)="next()">
+    <i class="fas fa-chevron-circle-right"></i>
+  </button>
+<ngx-slick-carousel class="carousel"
+
+                    #slickModal="slick-carousel"
+                    [config]="slideConfig"
+                    (init)="slickInit($event)"
+                    (breakpoint)="breakpoint($event)"
+                    (afterChange)="afterChange($event)"
+                    (beforeChange)="beforeChange($event)">
+
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <app-actor-card></app-actor-card>
+  </div>
+
+</ngx-slick-carousel>
+
+  <button class="prev "   [style.Visibility]="visiblePrev"  (click)="prev()">
+    <i class="fas fa-chevron-circle-left"></i>
+  </button>
+
+</div>
+
+
+

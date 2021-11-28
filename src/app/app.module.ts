@@ -15,6 +15,9 @@ import { SidebarComponent } from './base_components/sidebar/sidebar.component';
 import { StickybarComponent } from './base_components/stickybar/stickybar.component';
 import { SerialsComponent } from './home_page_components/serials/serials.component';
 import { SerialComponent } from './base_components/serial/serial.component';
+import { StripSliderComponent } from './base_components/strip_slider/strip-slider.component';
+import {SlickCarouselModule} from "ngx-slick-carousel";
+import { ActorCardComponent } from './base_components/actor-card/actor-card.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +31,17 @@ import { SerialComponent } from './base_components/serial/serial.component';
     StickybarComponent,
     CommentComponent,
     SerialsComponent,
-    SerialComponent
+    SerialComponent,
+    StripSliderComponent,
+    ActorCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

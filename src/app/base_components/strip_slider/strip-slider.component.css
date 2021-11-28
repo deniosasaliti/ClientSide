@@ -1,0 +1,22 @@
+.qweqweqwe{
+  background: black;
+
+}
+
+.qweqweqwe2{
+  background: green;
+
+}
+
+.next {
+  position: absolute;
+  z-index: 1000;
+  top: 20%;
+  right: 0;
+}
+.prev{
+  position: absolute;
+  z-index: 1000;
+  top: 20%;
+  left: 0;
+}

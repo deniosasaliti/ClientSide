@@ -5,12 +5,14 @@ import {RouterModule, Routes} from "@angular/router";
 import {PostsComponent} from "./home_page_components/posts/posts.component";
 import {LoginComponent} from "./base_components/auth/login/login.component";
 import {SerialsComponent} from "./home_page_components/serials/serials.component";
+import {StripSliderComponent} from "./base_components/strip_slider/strip-slider.component";
 
 const routes: Routes =[
   {path:'sign-up', component: SignupComponent},
   {path:'', component: PostsComponent},
   {path:'login', component: LoginComponent},
-  {path:'serials', component: SerialsComponent}
+  {path:'serials', component: SerialsComponent},
+  {path:'slider',component: StripSliderComponent}
 ];
 
 @NgModule({
