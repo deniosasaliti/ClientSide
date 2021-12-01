@@ -20,7 +20,7 @@ export class PostsComponent implements OnInit {
 
 
 
-   @Input() posts:PostComponent[]= [
+     posts:PostComponent[]= [
      this.first,
      this.second,
      new PostComponent(),

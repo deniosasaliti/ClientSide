@@ -15,15 +15,24 @@ export class StripSliderComponent implements OnInit {
   color="blue";
   visibleNext = 'visible';
   visiblePrev = 'hidden';
-  currentElement = 0;
+  currentElement = 8;
   next() {
-
+    this.visiblePrev='visible';
+    this.currentElement+=8;
     this.slickModal.slickNext();
+    if (this.currentElement>=this.slides.length){
+      this.visibleNext='hidden';
+    }
 
   }
 
   prev() {
+    this.visibleNext='visible';
+    this.currentElement-=8;
     this.slickModal.slickPrev();
+    if (this.currentElement<=8){
+      this.visiblePrev='hidden';
+    }
   }
 
 
@@ -36,7 +45,7 @@ export class StripSliderComponent implements OnInit {
   //   {img: "https://via.placeholder.com/600.png/422/fff"},
   //   {img: "https://via.placeholder.com/600.png/654/fff"}
   // ];
-  @Input() slides:ActorCardComponent[]= [
+  slides:ActorCardComponent[]= [
 
     new ActorCardComponent(),
     new ActorCardComponent(),

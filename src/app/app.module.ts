@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './base_components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
-import {RouterModule} from "@angular/router";
+import {ActivatedRoute, RouterModule} from "@angular/router";
 import { SignupComponent } from './base_components/auth/signup/signup.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
@@ -18,6 +18,7 @@ import { SerialComponent } from './base_components/serial/serial.component';
 import { StripSliderComponent } from './base_components/strip_slider/strip-slider.component';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 import { ActorCardComponent } from './base_components/actor-card/actor-card.component';
+import { SerialInfoComponent } from './home_page_components/serial-info/serial-info.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ActorCardComponent } from './base_components/actor-card/actor-card.comp
     SerialsComponent,
     SerialComponent,
     StripSliderComponent,
-    ActorCardComponent
+    ActorCardComponent,
+    SerialInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SerialComponent} from "../../base_components/serial/serial.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-serials',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SerialsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+
+  constructor(private router: Router) {
+
   }
 
+    serials =[
+      {"serialId": 1},
+      {"serialId": 2},
+      {"serialId": 3}
+
+  ]
+
+
+  ngOnInit(): void {
+
+  }
+
+
+  onClick(id:number) {
+    this.router.navigateByUrl('/serials/'+id)
+  }
 }

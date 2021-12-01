@@ -15,3 +15,11 @@ a:hover{
 }
 
 
+#clickable{
+  cursor: pointer;
+
+}
+
+#clickable.hover{
+
+}
