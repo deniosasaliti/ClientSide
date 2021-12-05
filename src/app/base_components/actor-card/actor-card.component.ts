@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-actor-card',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorCardComponent implements OnInit {
 
+  @Input() actor_url="";
+  @Input() actor_name="";
   constructor() { }
 
   ngOnInit(): void {

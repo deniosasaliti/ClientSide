@@ -10,19 +10,20 @@ html{
 
 
 ::-webkit-scrollbar {
-  width: 30px;
+  width: 8px;
   display: block;
   position: relative;
+
 
 
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 15px;
-  width: 20px;
+  width: 1px;
   border-color: gold;
   border-style: solid;
-  border-width: 5px;
+  border-width: 1px;
 
 }
 
@@ -31,11 +32,11 @@ html{
   border-radius: 15px;
   display: block;
   position: relative;
-  border:  10px solid transparent;
+  border:  1px solid transparent;
   z-index: -1;
-  background: 	linear-gradient(top, transparent 5px, black 5px, black 50%, transparent 50%),	linear-gradient(bottom, transparent 5px, black 5px, black 50%, transparent 50%),
-  radial-gradient(circle, black 5px, transparent 5px) -2px 59%,
-  radial-gradient(circle, black 5px, transparent 5px) -2px 41%;
+  background: 	linear-gradient(top, transparent 1px, black 1px, black 50%, transparent 50%),	linear-gradient(bottom, transparent 1px, black 1px, black 50%, transparent 50%),
+  radial-gradient(circle, black 1px, transparent 1px) -2px 59%,
+  radial-gradient(circle, black 1px, transparent 1px) -2px 41%;
   background-size: 100% 100%, 100% 100%, 15px 50%, 15px 50%;
   background-clip: padding-box;
 
@@ -48,7 +49,7 @@ html{
 
 
 ::-webkit-scrollbar-track {
-  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.2) inset;
 }
 
 
