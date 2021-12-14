@@ -1,0 +1,15 @@
+
+  <ngx-slick-carousel class="carousel"
+
+                      #slickModal="slick-carousel"
+                      [config]="slideConfig"
+                      (init)="slickInit($event)"
+                      (breakpoint)="breakpoint($event)"
+                      (afterChange)="afterChange($event)"
+                      (beforeChange)="beforeChange($event)">
+
+    <div ngxSlickItem *ngFor="let slide of slides">
+      <app-translate-card [studio_name]="slide.studio"  style="margin-left: 0"></app-translate-card>
+    </div>
+  </ngx-slick-carousel>
+

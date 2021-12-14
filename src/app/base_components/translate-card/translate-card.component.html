@@ -1,0 +1,13 @@
+<div   style="color: red;width: 100%;height: 75px;padding-left: 0;" class=" card">
+
+  <div class="card-body" style="padding-top: 3px;background-color: #202020;padding-left: 0">
+    <div style="display: inline;">
+      <a style="display: inline;padding: 10px 2px;" class="btn btn-outline-success my-2 my-sm-0">Смотреть {{studio_name}}
+        <div style="display: inline-block;padding-top: 0px">
+          <star-rating [value]="5" [totalstars]="5" checkedcolor="orange" uncheckedcolor="white" size="24px" [readonly]="false" (rate)="onRate($event)"></star-rating>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>

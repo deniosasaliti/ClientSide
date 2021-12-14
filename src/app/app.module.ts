@@ -19,6 +19,11 @@ import { StripSliderComponent } from './base_components/strip_slider/strip-slide
 import {SlickCarouselModule} from "ngx-slick-carousel";
 import { ActorCardComponent } from './base_components/actor-card/actor-card.component';
 import { SerialInfoComponent } from './home_page_components/serial-info/serial-info.component';
+import { TranslateSliderComponent } from './base_components/translate-slider/translate-slider.component';
+import { TranslateCardComponent } from './base_components/translate-card/translate-card.component';
+import {RatingModule} from "ng-starrating";
+import { ActorInfoComponent } from './base_components/actor-info/actor-info.component';
+import { SiteCardComponent } from './base_components/site-card/site-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { SerialInfoComponent } from './home_page_components/serial-info/serial-i
     SerialComponent,
     StripSliderComponent,
     ActorCardComponent,
-    SerialInfoComponent
+    SerialInfoComponent,
+    TranslateSliderComponent,
+    TranslateCardComponent,
+    ActorInfoComponent,
+    SiteCardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,8 @@ import { SerialInfoComponent } from './home_page_components/serial-info/serial-i
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

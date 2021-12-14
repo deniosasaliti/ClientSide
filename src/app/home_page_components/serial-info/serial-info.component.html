@@ -1,6 +1,12 @@
 <div style="background-color: black">
-<app-strip-slider></app-strip-slider>
-<div class="container" style="">
+<div class="container" style="width: 2000px">
+  <app-strip-slider [slides]="slides"></app-strip-slider>
+  <div>
+    <app-actor-info></app-actor-info>
+  </div>
+  <div style="background-color: #202020">
+    <app-translate-slider [slides]="translate"></app-translate-slider>
+  </div>
 <div class="row" style="height: inherit;">
   <div class="col-4" style="background-color: #202020">
       <div class="ml-2 mt-2">
@@ -78,14 +84,8 @@
   </ul>
   </div>
   </div>
-  <div class="col-3" style="background-color: #202020;color: white">
-    <h3>Emilia Clarke</h3>
-    <h6>Emilia Isobel Euphemia Rose Clarke is an English actress. She studied at the Drama Centre London, appearing in a number of stage productions. Her television debut was a guest appearance in the BBC One medical soap opera Doctors in 2009.</h6>
-    <h5>Born: October 23, 1986 (age 35 years), London, United Kingdom</h5>
-    <h5>Height: 1.57 m</h5>
-    <h5>Alma mater: Drama Centre London</h5>
-    <h5>Award: List of awards and nominations received by Emilia Clarke</h5>
-    <h5>Parents: Jennifer Clarke, Peter Clarke</h5>
+  <div class="col-3" style="background-color: #202020;color: white;padding-left:0">
+    <h1 style="font-size: 13px;margin-top: 10px">Лучшие сайты для просмотра сериала</h1>
   </div>
 </div>
   <div style="color: white;border-top: 1px solid gray;height: inherit;width: 100%;background-color: #202020;">

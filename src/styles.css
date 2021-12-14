@@ -88,4 +88,12 @@ body .next {
 
 
 
+.slick-track {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 
+}
+.slick-list{
+  background-color: #202020;
+  border-bottom: 1px solid white;
+}
