@@ -1,6 +1,15 @@
 <div style="background-color: black">
-<div class="container" style="width: 2000px">
-  <app-strip-slider [slides]="slides"></app-strip-slider>
+<div class="container">
+  <div class="qweqwe" style="color: white;" >
+    <app-strip-slider [slides]="slides"></app-strip-slider>
+
+<!--      <button class="qweqwe">-->
+<!--        <i class="fas fa-chevron-circle-left"></i>-->
+<!--      </button>-->
+
+
+  </div>
+
   <div>
     <app-actor-info></app-actor-info>
   </div>
@@ -14,7 +23,7 @@
         <a style="width: 100%"  class="btn btn-outline-success my-2 my-sm-0">Смотреть трейлер</a>
       </div>
   </div>
-  <div class="col-5" style="background-color: #202020;">
+  <div class="col-4" style="background-color: #202020;">
   <div class="wrap" style="padding-right: 10px" >
   <ul style="padding-left: 0">
     <li style="display: table-row;">
@@ -84,11 +93,16 @@
   </ul>
   </div>
   </div>
-  <div class="col-3" style="background-color: #202020;color: white;padding-left:0">
+  <div class="col-4" style="background-color: #202020;color: white;padding-left:0">
     <h1 style="font-size: 13px;margin-top: 10px">Лучшие сайты для просмотра сериала</h1>
+    <div *ngFor="let site of sites">
+
+        <app-site-card  [siteName]="site.name"></app-site-card>
+
+    </div>
   </div>
 </div>
-  <div style="color: white;border-top: 1px solid gray;height: inherit;width: 100%;background-color: #202020;">
+  <div style="color: white;border-top: 1px solid gray;height: inherit;width: 100%;background-color: #202020; padding: 10px">
     События сериала разворачиваются в другом мире, где повсюду с людьми есть волшебные и причудливые существа. Когда-то, на просторе вестеросских правил династии Таргариенов, держали власть с помощью драконов, но так было ровно до того момента, когда Роберт в союзе с другими домами не поднимался и не свергал узурпатора с Эгоном со своим троном, отдавая свой народ на свободу. С тех пор прошло более десяти лет, и никаких восстаний и войн на просторах Семи Королевств не предвидится. Но Роберт чувствует приближающуюся опасность, особенно после смерти его правой руки человека-Хуана арены, который был отравлен кем-то.
 
     Зная, что рядом с ним не осталось прокси, а только враги и коварный супруг: Серсея, пытаясь захватить власть и избавиться от нее, решает обратиться за помощью к старому другу и верному товарищу-Эддарду Старку, управляющему северными землями. С этой целью он отправляется в Винтерфелл со своей свитой. По прибытии он тут же начинает просить Эддарда помочь ему управлять страной, и, не имея возможности отвергнуть короля, соглашается, и в ближайшее время с детьми отправляется в Королевскую посадку, не зная, что переживет и как повлияет на его семью.

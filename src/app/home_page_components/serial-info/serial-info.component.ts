@@ -39,5 +39,14 @@ export class SerialInfoComponent implements OnInit {
     {studio:'Дубляж',rating:'qweqwe'},
     {studio:'Дубляж',rating:'qweqwe'}
   ];
+  sites =[
+    {name:'Funseria:',rating:'qweqwe'},
+    {name:'qwe:',rating:'qweqwe'},
+    {name:'dddd:',rating:'qweqwe'},
+    {name:'force Media',rating:'qweqwe'},
+    {name:'ggggg',rating:'qweqwe'},
+    {name:'Дубggggляж',rating:'qweqwe'},
+    {name:'gwwd',rating:'qweqwe'}
+  ];
 
 }
