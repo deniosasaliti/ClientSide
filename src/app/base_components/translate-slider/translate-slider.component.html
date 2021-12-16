@@ -9,7 +9,7 @@
                       (beforeChange)="beforeChange($event)">
 
     <div ngxSlickItem *ngFor="let slide of slides">
-      <app-translate-card [studio_name]="slide.studio"  style="margin-left: 0"></app-translate-card>
+      <app-translate-card [studio_name]="slide.studio" [siteList]="serialList"  style="margin-left: 0"></app-translate-card>
     </div>
   </ngx-slick-carousel>
 

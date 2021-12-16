@@ -11,6 +11,9 @@ export class TranslateSliderComponent implements OnInit {
 
   @Input()
   slides:Array<any>;
+  @Input()
+  serialList:Array<any>;
+
 
   ngOnInit(): void {
   }

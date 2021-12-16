@@ -14,7 +14,7 @@
     <app-actor-info></app-actor-info>
   </div>
   <div style="background-color: #202020">
-    <app-translate-slider [slides]="translate"></app-translate-slider>
+    <app-translate-slider [slides]="translate" [serialList]="sites"></app-translate-slider>
   </div>
 <div class="row" style="height: inherit;">
   <div class="col-4" style="background-color: #202020">
@@ -97,7 +97,7 @@
     <h1 style="font-size: 13px;margin-top: 10px">Лучшие сайты для просмотра сериала</h1>
     <div *ngFor="let site of sites">
 
-        <app-site-card  [siteName]="site.name"></app-site-card>
+        <app-site-card  [siteName]="site.name" [siteUrl]="site.siteUrl"></app-site-card>
 
     </div>
   </div>

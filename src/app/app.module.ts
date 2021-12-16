@@ -24,6 +24,7 @@ import { TranslateCardComponent } from './base_components/translate-card/transla
 import {RatingModule} from "ng-starrating";
 import { ActorInfoComponent } from './base_components/actor-info/actor-info.component';
 import { SiteCardComponent } from './base_components/site-card/site-card.component';
+import { ModalSerialListComponent } from './base_components/modal-serial-list/modal-serial-list.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SiteCardComponent } from './base_components/site-card/site-card.compone
     TranslateSliderComponent,
     TranslateCardComponent,
     ActorInfoComponent,
-    SiteCardComponent
+    SiteCardComponent,
+    ModalSerialListComponent
   ],
   imports: [
     BrowserModule,

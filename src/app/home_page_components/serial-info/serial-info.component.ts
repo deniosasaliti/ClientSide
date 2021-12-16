@@ -40,13 +40,13 @@ export class SerialInfoComponent implements OnInit {
     {studio:'Дубляж',rating:'qweqwe'}
   ];
   sites =[
-    {name:'Funseria:',rating:'qweqwe'},
-    {name:'qwe:',rating:'qweqwe'},
-    {name:'dddd:',rating:'qweqwe'},
-    {name:'force Media',rating:'qweqwe'},
-    {name:'ggggg',rating:'qweqwe'},
-    {name:'Дубggggляж',rating:'qweqwe'},
-    {name:'gwwd',rating:'qweqwe'}
+    {name:'Funseria:',rating:'qweqwe',siteUrl:'http://myseria.pro/119-game-of-thrones-6/1-season.html'},
+    {name:'HDRezka:',rating:'qweqwe',siteUrl:'https://rezka.ag/series/fantasy/45-igra-prestolov-2011.html'},
+    {name:'dddd:',rating:'qweqwe',siteUrl:'http://myseria.pro/119-game-of-thrones-6/1-season.html'},
+    {name:'force Media',rating:'qweqwe',siteUrl:'http://myseria.pro/119-game-of-thrones-6/1-season.html'},
+    {name:'ggggg',rating:'qweqwe',siteUrl:'http://myseria.pro/119-game-of-thrones-6/1-season.html'},
+    {name:'Дубggggляж',rating:'qweqwe',siteUrl:'http://myseria.pro/119-game-of-thrones-6/1-season.html'},
+    {name:'gwwd',rating:'qweqwe',siteUrl:'http://myseria.pro/119-game-of-thrones-6/1-season.html'}
   ];
 
 }

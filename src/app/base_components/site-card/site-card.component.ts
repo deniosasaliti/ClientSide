@@ -14,7 +14,7 @@ export class SiteCardComponent implements OnInit {
   }
 
   @Input() siteName="";
-
+  @Input() siteUrl="";
   onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     alert(`Old Value:${$event.oldValue},
       New Value: ${$event.newValue},

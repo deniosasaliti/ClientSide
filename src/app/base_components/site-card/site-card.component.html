@@ -1,14 +1,10 @@
+<div style="display: table-cell">
+  <a  href="{{siteUrl}}" target="_blank" style="width: 230px;text-align: left;height: 62px;padding-top: 15px" class="btn btn-outline-success my-2 my-sm-0">Смотреть на {{siteName}}</a>
+</div>
 
-
-
-
-        <div style="display: table-cell">
-          <a  style="width: 230px;text-align: left;height: 62px;padding-top: 15px" class="btn btn-outline-success my-2 my-sm-0">Смотреть на {{siteName}}</a>
-        </div>
-
-      <div style="display: table-cell">
-        <star-rating [value]="5" [totalstars]="5" checkedcolor="orange" uncheckedcolor="white" size="24px" [readonly]="false" (rate)="onRate($event)"></star-rating>
-      </div>
+<div style="display: table-cell">
+  <star-rating [value]="5" [totalstars]="5" checkedcolor="orange" uncheckedcolor="white" size="24px" [readonly]="false" (rate)="onRate($event)"></star-rating>
+</div>
 
 
 
