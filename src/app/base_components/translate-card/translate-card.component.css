@@ -6,3 +6,7 @@
 .btn-outline-success{
   border:#202020;
 }
+.dark-modal{
+  background-color: #202020;
+  color: white;
+}

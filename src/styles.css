@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@vime/core/themes/default.css';
+@import '~@vime/core/themes/light.css'; /* You can add global styles to this file, and also import other style files */
 body   {
   overflow-x: hidden; /* Hide horizontal scrollbar */
 
@@ -97,3 +98,21 @@ body .next {
   background-color: #202020;
   border-bottom: 1px solid white;
 }
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+
+
+
+
+/* Default theme. ~960B */
+
+/* Optional light theme (extends default). ~400B */
+

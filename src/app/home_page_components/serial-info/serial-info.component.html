@@ -93,11 +93,16 @@
   </ul>
   </div>
   </div>
-  <div class="col-4" style="background-color: #202020;color: white;padding-left:0">
+  <div class="col-4" style="background-color: white;color: white;padding-left:0">
     <h1 style="font-size: 13px;margin-top: 10px">Лучшие сайты для просмотра сериала</h1>
-    <div *ngFor="let site of sites">
+    <div *ngFor="let audio of audios">
 
-        <app-site-card  [siteName]="site.name" [siteUrl]="site.siteUrl"></app-site-card>
+
+    <div style="margin-top: 5px; display: table-cell">
+
+        </div>
+      </div>
+    </div>
 
     </div>
   </div>

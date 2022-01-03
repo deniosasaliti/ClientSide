@@ -5,7 +5,7 @@ import { HeaderComponent } from './base_components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import {ActivatedRoute, RouterModule} from "@angular/router";
 import { SignupComponent } from './base_components/auth/signup/signup.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { PostComponent } from './base_components/post/post.component';
 import { CommentComponent } from './base_components/comment/comment.component';
@@ -25,6 +25,10 @@ import {RatingModule} from "ng-starrating";
 import { ActorInfoComponent } from './base_components/actor-info/actor-info.component';
 import { SiteCardComponent } from './base_components/site-card/site-card.component';
 import { ModalSerialListComponent } from './base_components/modal-serial-list/modal-serial-list.component';
+import {VimeModule} from "@vime/angular";
+import { AudioTrackComponent } from './base_components/audio-track/audio-track.component';
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { ModalSerialListComponent } from './base_components/modal-serial-list/mo
     TranslateCardComponent,
     ActorInfoComponent,
     SiteCardComponent,
-    ModalSerialListComponent
+    ModalSerialListComponent,
+    AudioTrackComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,10 @@ import { ModalSerialListComponent } from './base_components/modal-serial-list/mo
     ReactiveFormsModule,
     HttpClientModule,
     SlickCarouselModule,
-    RatingModule
+    RatingModule,
+    VimeModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

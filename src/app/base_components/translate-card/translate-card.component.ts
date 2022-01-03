@@ -28,7 +28,7 @@ export class TranslateCardComponent implements OnInit {
 
 
   openWindowCustomClass(content:any) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
+    this.modalService.open(content, {  windowClass: 'dark-modal', size: 'sm',centered: true });
   }
 
 
