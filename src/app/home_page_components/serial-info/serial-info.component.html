@@ -99,9 +99,7 @@
 
 
     <div style="margin-top: 5px; display: table-cell">
-
-        </div>
-      </div>
+    <app-audio-track  [changing]="changingValue" [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)"></app-audio-track>
     </div>
 
     </div>

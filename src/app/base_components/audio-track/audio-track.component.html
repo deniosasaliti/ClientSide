@@ -1,0 +1,18 @@
+<div class="audio-player">
+
+  <audio src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1"></audio>
+  <div class="controls">
+    <button class="player-button"  (click)="play();isTrackPlay.emit(this.audio)">
+      <i class="fas fa-play"></i>
+    </button>
+    <button class="player-button" (click)="stopC()" >
+      <i class="fas fa-stop"></i>
+    </button>
+
+    <input type="range"  min="0" step="1"   max="{{max}}" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
+
+    <button class="sound-button">
+      <i class="fa fa-volume-up"></i>
+    </button>
+  </div>
+</div>

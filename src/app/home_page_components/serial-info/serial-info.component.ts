@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, Output, ViewChild} from '@angular/core';
 import {SlickItemDirective} from "ngx-slick-carousel/slick.component";
 import {skipWhile} from "rxjs/operators";
-import {interval} from "rxjs";
+import {interval, Subject} from "rxjs";
+import {AudioTrackComponent} from "../../base_components/audio-track/audio-track.component";
 // Default theme. ~960B
 
 
@@ -14,13 +15,31 @@ import {interval} from "rxjs";
 })
 export class SerialInfoComponent implements OnInit {
 
+  // @ViewChild('audioTrackComponent', {static: false}) audioTrackComponent: AudioTrackComponent;
+
+  currentTrackAudio:any;
   constructor() { }
+  changingValue: Subject<any> = new Subject();
 
 
 
 
   ngOnInit(): void {
   }
+
+  isPlayT(audio:any){
+
+    if (this.currentTrackAudio !=null && this.currentTrackAudio.played){
+
+       this.currentTrackAudio.pause();
+
+    }
+    this.currentTrackAudio = audio;
+
+  }
+  // anyMethod(): void {
+  //   this.audioTrackComponent.stopC() // updateData is a child method
+  // }
 
   someStringName:any = "ss"
   slides  = [
@@ -58,9 +77,9 @@ export class SerialInfoComponent implements OnInit {
 
 
   audios = [
-    {url:'assets/123.mp3',trackVal:''},
-    {url:'assets/333.mp3',trackVal:''}
-  ]
+    {url:'assets/123.mp3'},
+    {url:'assets/333.mp3'}
+  ];
 
 
 
