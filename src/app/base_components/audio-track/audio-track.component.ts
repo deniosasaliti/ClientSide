@@ -9,7 +9,9 @@ import {Subject} from "rxjs";
 export class AudioTrackComponent implements OnInit {
   @Input() trackUrl = '';
   @Output() isTrackPlay = new EventEmitter<any>();
+  @Output() trackIntervalId = new EventEmitter<any>();
   @Input() changing: Subject<any>;
+  play1:any;
 
 
     audio:any;
@@ -28,18 +30,22 @@ export class AudioTrackComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.audio = new Audio(this.trackUrl)
+
   }
 
   play() {
-    this.audio.load();
-    this.audio.currentTime = this.sliderVal;
-    this.audio.play();
+       this.audio = new Audio(this.trackUrl)
+       this.audio.load();
+
+      this.audio.currentTime = this.sliderVal;
+       this.play1 = this.audio.play();
 
 
 
 
-    this.isPlay = true;
+
+
+    this.isPlay = this.audio.played;
     this.timeUp(this.isPlay);
 
 
@@ -53,9 +59,12 @@ export class AudioTrackComponent implements OnInit {
 
 
   stopC() {
-    this.isPlay = false;
+    this.isPlay = this.audio.played;
     this.sliderVal = this.audio.currentTime;
-    this.audio.pause();
+    if (this.play1 !== undefined) {
+      this.audio.pause();
+    }
+
     clearInterval(this.idInterval)
   }
   timeUp(isPlay:boolean){

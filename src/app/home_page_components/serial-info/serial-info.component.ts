@@ -18,20 +18,28 @@ export class SerialInfoComponent implements OnInit {
   // @ViewChild('audioTrackComponent', {static: false}) audioTrackComponent: AudioTrackComponent;
 
   currentTrackAudio:any;
+  isTrackPlay:any;
   constructor() { }
   changingValue: Subject<any> = new Subject();
 
+  isPlay:boolean;
+  sliderVal: number = 0;
+  max:any;
+  idInterval:any;
+  playingAudio:any;
 
 
 
   ngOnInit(): void {
   }
-
+  setInterval(interval:any) {
+    this.idInterval = interval;
+  }
   isPlayT(audio:any){
 
     if (this.currentTrackAudio !=null && this.currentTrackAudio.played){
 
-       this.currentTrackAudio.pause();
+    this.stopC22()
 
     }
     this.currentTrackAudio = audio;
@@ -82,6 +90,44 @@ export class SerialInfoComponent implements OnInit {
   ];
 
 
+  play() {
+    this.currentTrackAudio.load();
+    this.currentTrackAudio.currentTime = this.sliderVal;
+    this.currentTrackAudio.play();
+
+
+
+
+    this.isPlay = this.currentTrackAudio.played;
+    this.timeUp(this.isPlay);
+
+
+
+  }
+
+  changeTime(value:any){
+    this.currentTrackAudio.currentTime = value;
+
+  }
+
+
+  stopC22() {
+    this.isPlay = this.currentTrackAudio.played;
+    this.sliderVal = this.currentTrackAudio.currentTime;
+    this.currentTrackAudio.pause();
+    clearInterval(this.idInterval)
+  }
+  timeUp(isPlay:boolean){
+
+    if (isPlay){
+
+      this.idInterval = setInterval(() => {
+        this.sliderVal++;
+      }, 1000);
+
+    }
+
+  }
 
 
 
