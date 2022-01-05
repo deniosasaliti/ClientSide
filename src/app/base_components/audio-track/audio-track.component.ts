@@ -11,6 +11,8 @@ export class AudioTrackComponent implements OnInit {
   @Output() isTrackPlay = new EventEmitter<any>();
   @Output() trackIntervalId = new EventEmitter<any>();
   @Input() changing: Subject<any>;
+
+   isPlay:boolean = false;
   play1:any;
 
 
@@ -21,7 +23,7 @@ export class AudioTrackComponent implements OnInit {
 
 
 
-  isPlay:boolean = false;
+
   sliderVal: number = 0;
   max:any;
   idInterval:any;
@@ -34,11 +36,12 @@ export class AudioTrackComponent implements OnInit {
   }
 
   play() {
-       this.audio = new Audio(this.trackUrl)
-       this.audio.load();
 
-      this.audio.currentTime = this.sliderVal;
-       this.play1 = this.audio.play();
+        this.audio = new Audio(this.trackUrl)
+        this.audio.load();
+
+        this.audio.currentTime = this.sliderVal;
+        this.play1 = this.audio.play();
 
 
 
@@ -59,11 +62,12 @@ export class AudioTrackComponent implements OnInit {
 
 
   stopC() {
-    this.isPlay = this.audio.played;
+
     this.sliderVal = this.audio.currentTime;
-    if (this.play1 !== undefined) {
+
       this.audio.pause();
-    }
+      this.isPlay = false;
+
 
     clearInterval(this.idInterval)
   }

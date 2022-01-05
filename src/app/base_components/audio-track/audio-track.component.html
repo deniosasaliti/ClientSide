@@ -1,18 +1,21 @@
-<div class="audio-player">
+<ng-template #playButton>
+  <button style="display: table-cell"   (click)="play();isTrackPlay.emit(this.audio);trackIntervalId.emit(this.idInterval)">
+    <i class="fas fa-play"></i>
+  </button>
+</ng-template>
 
-  <audio src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1"></audio>
-  <div class="controls">
-    <button class="player-button"  (click)="play();isTrackPlay.emit(this.audio);trackIntervalId.emit(this.idInterval)">
-      <i class="fas fa-play"></i>
-    </button>
-    <button class="player-button" (click)="stopC()" >
-      <i class="fas fa-stop"></i>
-    </button>
+<div style="display: table-row;">
 
-    <input type="range"  min="0" step="1"   max="{{max}}" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
+    <div style="display: table-cell" *ngIf="isPlay && !audio.paused; else playButton" >
+      <button  (click)="stopC()" >
+        <i class="fas fa-stop"></i>
+      </button>
+    </div>
 
-    <button class="sound-button">
+    <input style="display: table-cell" type="range"  min="0" step="1"   max="{{max}}" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
+
+    <button style="display: table-cell" class="sound-button">
       <i class="fa fa-volume-up"></i>
     </button>
-  </div>
+
 </div>

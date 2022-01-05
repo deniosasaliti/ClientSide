@@ -18,8 +18,8 @@ export class SerialInfoComponent implements OnInit {
   // @ViewChild('audioTrackComponent', {static: false}) audioTrackComponent: AudioTrackComponent;
 
   currentTrackAudio:any;
-  isTrackPlay:any;
-  constructor() { }
+
+  constructor() {}
   changingValue: Subject<any> = new Subject();
 
   isPlay:boolean;
@@ -43,6 +43,7 @@ export class SerialInfoComponent implements OnInit {
 
     }
     this.currentTrackAudio = audio;
+
 
   }
   // anyMethod(): void {
@@ -112,7 +113,7 @@ export class SerialInfoComponent implements OnInit {
 
 
   stopC22() {
-    this.isPlay = this.currentTrackAudio.played;
+    this.isPlay = false;
     this.sliderVal = this.currentTrackAudio.currentTime;
     this.currentTrackAudio.pause();
     clearInterval(this.idInterval)
