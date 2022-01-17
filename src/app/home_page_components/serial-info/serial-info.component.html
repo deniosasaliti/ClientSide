@@ -20,7 +20,7 @@
   <div class="col-4" style="background-color: #202020">
       <div class="ml-2 mt-2">
         <img style="width: 100%;height: 500px" class="mb-2" src="https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_FMjpg_UX1000_.jpg">
-        <a style="width: 100%"  class="btn btn-outline-success my-2 my-sm-0">Смотреть трейлер</a>
+        <a style="width: 100%" (click)="openWindowCustomClass(content)" class="btn btn-outline-success my-2 my-sm-0">Смотреть трейлер</a>
       </div>
   </div>
   <div class="col-4" style="background-color: #202020;">
@@ -93,13 +93,13 @@
   </ul>
   </div>
   </div>
-  <div class="col-4" style="background-color: white;color: white;padding-left:0">
+  <div class="col-4" style="background-color: #202020;color: white;padding-left:0">
     <h1 style="font-size: 13px;margin-top: 10px">Лучшие сайты для просмотра сериала</h1>
     <div *ngFor="let audio of audios">
 
 
-    <div style="margin-top: 5px; display: table-cell">
-    <app-audio-track    [changing]="changingValue" [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)" (trackIntervalId)="setInterval($event)"></app-audio-track>
+    <div style="margin-top: 5px; ">
+    <app-audio-track [trackName]="audio.name"   [changing]="changingValue" [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)" (trackIntervalId)="setInterval($event)"></app-audio-track>
     </div>
 
     </div>
@@ -113,3 +113,28 @@
 </div>
   </div>
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div  class="modal-body">
+    <vm-player
+      theme="dark"
+      style="--vm-player-theme: #e86c8b;"
+    >
+      <vm-youtube video-id="KPLWWIOCOOQ"></vm-youtube>
+
+        <vm-default-ui></vm-default-ui>
+    </vm-player>
+
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

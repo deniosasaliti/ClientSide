@@ -23,6 +23,7 @@
   top: inherit;
   left: 0;
   height:100%;
+  width: 250px;
   transition: all 0.3s;
   background-color:rgba(110,110,110,0.19);
   color: white;
@@ -104,3 +105,5 @@ ul ul a {
 a:hover{
   cursor: pointer;
 }
+
+

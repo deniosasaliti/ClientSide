@@ -1,60 +1,98 @@
+
+<popover-content #myPopover
+
+
+                 [closeOnClickOutside]="true"
+                 [closeOnMouseOutside]="true"
+                 [animation] ="true"
+                 placement="right top" style="position:  fixed;z-index: 1000 !important;background-color: black !important;">
+  <div style="width: 400px;height: 250px; background-color: green;"></div>
+</popover-content>
+
+
 <div class="wrapper">
+
+
   <!-- Sidebar -->
-  <nav  class="sidebar">
-    <ng-template #elseBlockFavorite>
-      <a  (click)="hideFavorite()">скрыть</a>
-    </ng-template>
-    <ng-template #elseBlockRecommended>
-      <a  (click)="hideRecommended()">скрыть</a>
-    </ng-template>
-    <ul class="list-unstyled components">
+  <div>
+
+    <nav class="sidebar">
+      <ng-template #elseBlockFavorite>
+        <a (click)="hideFavorite()">скрыть</a>
+      </ng-template>
+      <ng-template #elseBlockRecommended>
+        <a (click)="hideRecommended()">скрыть</a>
+      </ng-template>
+      <div>
+        <ul class="list-unstyled components">
 
 
-      <p class="sidebar-header">Отслеживаемые сериалы</p>
+          <p class="sidebar-header">Отслеживаемые сериалы</p>
 
-      <li  *ngFor="let fav of favorite; index as i">
+          <li *ngFor="let fav of favorite; index as i">
 
 
-        <div *ngIf="i < bundleFavorite ">
-        <a>{{fav}}</a>
+
+            <div *ngIf="i < bundleFavorite ">
+
+
+
+              <div>
+                <a    [popover]="myPopover">{{fav}}</a>
+              </div>
+              <!--          <div popover="content to be shown in the popover"-->
+              <!--               popoverTitle="Popover header"-->
+              <!--               popoverPlacement="right top"-->
+              <!--               [popoverOnHover]="true"-->
+              <!--               [popoverCloseOnClickOutside]="true"-->
+              <!--               [popoverCloseOnMouseOutside]="false"-->
+              <!--               [popoverDisabled]="false"-->
+              <!--               [popoverAnimation]="true"-->
+              <!--               [popoverDismissTimeout]="1000">-->
+
+              <!--            <a  style="width: 250px">{{fav}}</a>-->
+
+              <!--          </div>-->
+            </div>
+
+          </li>
+
+          <div class="row" *ngIf="favorite.length > bundleFavorite; else elseBlockFavorite">
+            <a class="col" (click)="upFavorite()">показать еще</a>
+            <div class="col" *ngIf="bundleFavorite > 3">
+              <a (click)="hideFavorite()">скрыть</a>
+            </div>
+
+            <!--////////////////////////////-->
+
+            <!--        /////////////////////////-->
+
+          </div>
+
+        </ul>
       </div>
-
-      </li>
-
-      <div class="row" *ngIf="favorite.length > bundleFavorite; else elseBlockFavorite">
-        <a class="col"  (click)="upFavorite()">показать еще</a>
-        <div class="col" *ngIf="bundleFavorite > 3">
-          <a  (click)="hideFavorite()">скрыть</a>
-        </div>
-
-<!--////////////////////////////-->
-
-<!--        /////////////////////////-->
-
-      </div>
-
-    </ul>
-    <ul class="list-unstyled components">
+      <ul class="list-unstyled components">
 
 
         <p class="sidebar-header">Рекомендуемые сериалы</p>
 
-      <li  *ngFor="let rec of recommended; index as i">
+        <li *ngFor="let rec of recommended; index as i">
 
 
-        <div *ngIf="i < bundleRecommended">
-          <a>{{rec}}</a>
+          <div *ngIf="i < bundleRecommended">
+            <a>  {{rec}}</a>
+          </div>
+
+        </li>
+
+        <div class="row" *ngIf="recommended.length > bundleRecommended; else elseBlockRecommended">
+          <a class="col" (click)="upRecommended()">показать еще</a>
+          <div class="col" *ngIf="bundleRecommended > 4">
+            <a (click)="hideRecommended()">скрыть</a>
+          </div>
         </div>
 
-      </li>
-
-      <div class="row" *ngIf="recommended.length > bundleRecommended; else elseBlockRecommended">
-        <a class="col" (click)="upRecommended()">показать еще</a>
-        <div class="col" *ngIf="bundleRecommended > 4">
-          <a  (click)="hideRecommended()">скрыть</a>
-        </div>
-      </div>
-
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+  </div>
 </div>

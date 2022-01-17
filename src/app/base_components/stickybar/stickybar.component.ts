@@ -10,6 +10,7 @@ export class StickybarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

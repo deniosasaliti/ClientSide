@@ -8,6 +8,7 @@ import {Subject} from "rxjs";
 })
 export class AudioTrackComponent implements OnInit {
   @Input() trackUrl = '';
+  @Input() trackName = '';
   @Output() isTrackPlay = new EventEmitter<any>();
   @Output() trackIntervalId = new EventEmitter<any>();
   @Input() changing: Subject<any>;
@@ -39,6 +40,7 @@ export class AudioTrackComponent implements OnInit {
 
         this.audio = new Audio(this.trackUrl)
         this.audio.load();
+
 
         this.audio.currentTime = this.sliderVal;
         this.play1 = this.audio.play();

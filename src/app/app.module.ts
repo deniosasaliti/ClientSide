@@ -27,6 +27,9 @@ import { SiteCardComponent } from './base_components/site-card/site-card.compone
 import { ModalSerialListComponent } from './base_components/modal-serial-list/modal-serial-list.component';
 import {VimeModule} from "@vime/angular";
 import { AudioTrackComponent } from './base_components/audio-track/audio-track.component';
+import {NgbModule, NgbPopoverModule} from "@ng-bootstrap/ng-bootstrap";
+import {PopoverModule} from "ngx-smart-popover";
+import { SideBarPopoverComponent } from './base_components/side-bar-popover/side-bar-popover.component';
 
 
 
@@ -51,7 +54,8 @@ import { AudioTrackComponent } from './base_components/audio-track/audio-track.c
     ActorInfoComponent,
     SiteCardComponent,
     ModalSerialListComponent,
-    AudioTrackComponent
+    AudioTrackComponent,
+    SideBarPopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,10 @@ import { AudioTrackComponent } from './base_components/audio-track/audio-track.c
     SlickCarouselModule,
     RatingModule,
     VimeModule,
-    FormsModule
+    FormsModule,
+    NgbPopoverModule,
+    NgbModule,
+    PopoverModule
 
   ],
   providers: [],

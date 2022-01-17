@@ -4,7 +4,7 @@ import {skipWhile} from "rxjs/operators";
 import {interval, Subject} from "rxjs";
 import {AudioTrackComponent} from "../../base_components/audio-track/audio-track.component";
 // Default theme. ~960B
-
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,7 +19,7 @@ export class SerialInfoComponent implements OnInit {
 
   currentTrackAudio:any;
 
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
   changingValue: Subject<any> = new Subject();
 
   isPlay:boolean;
@@ -28,7 +28,7 @@ export class SerialInfoComponent implements OnInit {
   idInterval:any;
   playingAudio:any;
 
-
+  trailerLink = 'https://www.youtube.com/watch?v=YLCKYTKlPU0&list=RDYLCKYTKlPU0&start_radio=1';
 
   ngOnInit(): void {
   }
@@ -86,8 +86,8 @@ export class SerialInfoComponent implements OnInit {
 
 
   audios = [
-    {url:'assets/123.mp3'},
-    {url:'assets/333.mp3'}
+    {url:'assets/123.mp3',name:'qwe'},
+    {url:'assets/333.mp3',name:'qwe2'}
   ];
 
 
@@ -129,7 +129,9 @@ export class SerialInfoComponent implements OnInit {
     }
 
   }
-
+  openWindowCustomClass(content:any) {
+    this.modalService.open(content, {  windowClass: 'dark-modal', size: 'lg',centered: true });
+  }
 
 
 }
