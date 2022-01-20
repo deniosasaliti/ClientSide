@@ -6,7 +6,7 @@
                  [closeOnMouseOutside]="true"
                  [animation] ="true"
                  placement="right top" style="position:  fixed;z-index: 1000 !important;background-color: black !important;">
-  <div style="width: 400px;height: 250px; background-color: green;"></div>
+  <app-side-bar-popover></app-side-bar-popover>
 </popover-content>
 
 
@@ -80,7 +80,7 @@
 
 
           <div *ngIf="i < bundleRecommended">
-            <a>  {{rec}}</a>
+            <a [popover]="myPopover">{{rec}}</a>
           </div>
 
         </li>

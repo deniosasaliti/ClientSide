@@ -30,6 +30,8 @@ import { AudioTrackComponent } from './base_components/audio-track/audio-track.c
 import {NgbModule, NgbPopoverModule} from "@ng-bootstrap/ng-bootstrap";
 import {PopoverModule} from "ngx-smart-popover";
 import { SideBarPopoverComponent } from './base_components/side-bar-popover/side-bar-popover.component';
+import { NewsfeedBlockComponent } from './base_components/newsfeed-block/newsfeed-block.component';
+import { NewsfeedPageInfoComponent } from './home_page_components/newsfeed-page-info/newsfeed-page-info.component';
 
 
 
@@ -55,7 +57,9 @@ import { SideBarPopoverComponent } from './base_components/side-bar-popover/side
     SiteCardComponent,
     ModalSerialListComponent,
     AudioTrackComponent,
-    SideBarPopoverComponent
+    SideBarPopoverComponent,
+    NewsfeedBlockComponent,
+    NewsfeedPageInfoComponent
   ],
   imports: [
     BrowserModule,
