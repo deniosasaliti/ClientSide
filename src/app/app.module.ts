@@ -32,6 +32,7 @@ import {PopoverModule} from "ngx-smart-popover";
 import { SideBarPopoverComponent } from './base_components/side-bar-popover/side-bar-popover.component';
 import { NewsfeedBlockComponent } from './base_components/newsfeed-block/newsfeed-block.component';
 import { NewsfeedPageInfoComponent } from './home_page_components/newsfeed-page-info/newsfeed-page-info.component';
+import { LastNewsItemComponent } from './base_components/last-news-item/last-news-item.component';
 
 
 
@@ -59,7 +60,8 @@ import { NewsfeedPageInfoComponent } from './home_page_components/newsfeed-page-
     AudioTrackComponent,
     SideBarPopoverComponent,
     NewsfeedBlockComponent,
-    NewsfeedPageInfoComponent
+    NewsfeedPageInfoComponent,
+    LastNewsItemComponent
   ],
   imports: [
     BrowserModule,

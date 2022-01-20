@@ -1,0 +1,44 @@
+<div style="background-color: black">
+<div style="margin-top: 200px;max-width: 1150px" class="container">
+  <div class="row">
+    <div style="background-color: white;padding-top: 25px" class="col-lg-8">
+      <div style="margin-top: 20px;padding-left: 30px;padding-right: 30px">
+       <h1 style="font-size: 33px">HBO Max выпустил трейлер второго сезона «Воспитанных волками» Ридли Скотта</h1>
+        <div style="padding-top: 20px">
+          <p>14-января-2022</p>
+        </div>
+      </div>
+
+<!--      плеер-->
+      <div style="padding-top: 50px">
+        <vm-player
+          theme="dark"
+          style="--vm-player-theme: #e86c8b;"
+        >
+          <vm-youtube video-id="KPLWWIOCOOQ"></vm-youtube>
+
+          <vm-default-ui></vm-default-ui>
+        </vm-player>
+      </div>
+      <div *ngFor="let par of Paragraphs">
+        <p style="padding-top: 15px;padding-right: 10px;padding-left: 10px">
+          Канал FX заказал продолжение вестерна «Правосудие», выходившего с 2010 по 2015 год. Новая часть будет основана на City Primeval: High Noon in Detroit, романе Элмора Леонарда (оригинальное «Правосудие» — вольная адаптация его произведений). Тимоти Олифант, исполнитель главной роли, вновь вернется к своему персонажу.
+        </p>
+      </div>
+    </div>
+    <div style="background-color: white;border-left: 1px solid #202020" class="col-lg-4">
+      <div style="padding-top: 15px">
+        <h4>Последние новости</h4>
+      </div>
+      <div *ngFor="let news of lastNews">
+        <app-last-news-item></app-last-news-item>
+      </div>
+
+    </div>
+  </div>
+  <div style="background-color: #5cb3fd;height: 300px;">
+
+  </div>
+</div>
+
+</div>
