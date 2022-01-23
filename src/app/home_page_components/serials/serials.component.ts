@@ -19,7 +19,6 @@ export class SerialsComponent implements OnInit {
       {"serialId": 1},
       {"serialId": 2},
       {"serialId": 3}
-
   ]
 
 

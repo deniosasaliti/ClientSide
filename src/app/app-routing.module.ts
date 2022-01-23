@@ -9,10 +9,11 @@ import {StripSliderComponent} from "./base_components/strip_slider/strip-slider.
 import {SerialComponent} from "./base_components/serial/serial.component";
 import {SerialInfoComponent} from "./home_page_components/serial-info/serial-info.component";
 import {NewsfeedPageInfoComponent} from "./home_page_components/newsfeed-page-info/newsfeed-page-info.component";
+import {MainPageComponent} from "./home_page_components/main-page/main-page.component";
 
 const routes: Routes =[
   {path:'sign-up', component: SignupComponent},
-  {path:'', component: PostsComponent},
+  {path:'', component: MainPageComponent},
   {path:'login', component: LoginComponent},
   {path:'serials', component: SerialsComponent},
   {path:'slider',component: StripSliderComponent},

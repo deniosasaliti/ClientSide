@@ -1,0 +1,18 @@
+<div id="main" style="background-color: black">
+
+
+
+
+  <div style="background-color:black; flex-grow: 5;">
+    <app-sidebar></app-sidebar>
+  </div>
+
+
+  <div  class="container" style="background-color: black">
+    <div    *ngFor="let item of news">
+      <app-newsfeed-block></app-newsfeed-block>
+    </div>
+  </div>
+
+
+</div>

@@ -33,6 +33,7 @@ import { SideBarPopoverComponent } from './base_components/side-bar-popover/side
 import { NewsfeedBlockComponent } from './base_components/newsfeed-block/newsfeed-block.component';
 import { NewsfeedPageInfoComponent } from './home_page_components/newsfeed-page-info/newsfeed-page-info.component';
 import { LastNewsItemComponent } from './base_components/last-news-item/last-news-item.component';
+import { MainPageComponent } from './home_page_components/main-page/main-page.component';
 
 
 
@@ -61,7 +62,8 @@ import { LastNewsItemComponent } from './base_components/last-news-item/last-new
     SideBarPopoverComponent,
     NewsfeedBlockComponent,
     NewsfeedPageInfoComponent,
-    LastNewsItemComponent
+    LastNewsItemComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
