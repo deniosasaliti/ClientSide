@@ -10,14 +10,14 @@ import {ActivatedRoute} from "@angular/router";
 export class SerialComponent implements OnInit {
 
 
-  @Input()  serialId:number;
+  // @Input()  serialId:number;
 
   constructor(private activateRoute:ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    this.serialId = this.activateRoute.snapshot.params.id;
+    // this.serialId = this.activateRoute.snapshot.params.id;
   }
 
 

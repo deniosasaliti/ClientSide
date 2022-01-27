@@ -10,6 +10,7 @@ import {SerialComponent} from "./base_components/serial/serial.component";
 import {SerialInfoComponent} from "./home_page_components/serial-info/serial-info.component";
 import {NewsfeedPageInfoComponent} from "./home_page_components/newsfeed-page-info/newsfeed-page-info.component";
 import {MainPageComponent} from "./home_page_components/main-page/main-page.component";
+import {NewsfeedBlockComponent} from "./base_components/newsfeed-block/newsfeed-block.component";
 
 const routes: Routes =[
   {path:'sign-up', component: SignupComponent},
@@ -18,7 +19,8 @@ const routes: Routes =[
   {path:'serials', component: SerialsComponent},
   {path:'slider',component: StripSliderComponent},
   {path:'serials/:id',component: SerialInfoComponent},
-  {path:'news',component: NewsfeedPageInfoComponent}
+  {path:'news',component: NewsfeedPageInfoComponent},
+  {path:'news/:id',component:NewsfeedPageInfoComponent}
 
 ];
 

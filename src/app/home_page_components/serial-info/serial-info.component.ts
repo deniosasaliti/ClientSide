@@ -44,6 +44,7 @@ export class SerialInfoComponent implements OnInit {
 
 
 
+
   ngOnInit(): void {
     let id:number   =   this.activatedRouter.snapshot.params['id']
     this.authService.getAllSerials(id).subscribe(data=>{

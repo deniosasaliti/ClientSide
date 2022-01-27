@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
@@ -7,18 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
 
   news = [
-    {newsImg:''},
-    {newsImg:''},
-    {newsImg:''},
-    {newsImg:''},
-    {newsImg:''}
+    {id:1, newsImg:''},
+    {id:2, newsImg:''},
+    {id:3, newsImg:''},
+    {id:4, newsImg:''},
+    {id:5, newsImg:''}
   ]
 
+  onclick(id:any) {
+    this.router.navigateByUrl('/news/' +id)
+  }
 }

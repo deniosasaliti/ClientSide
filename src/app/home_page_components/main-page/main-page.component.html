@@ -10,7 +10,7 @@
 
   <div  class="container" style="background-color: black">
     <div    *ngFor="let item of news">
-      <app-newsfeed-block></app-newsfeed-block>
+      <app-newsfeed-block (click)="onclick(item.id)" ></app-newsfeed-block>
     </div>
   </div>
 

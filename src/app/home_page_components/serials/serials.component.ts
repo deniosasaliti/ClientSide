@@ -28,6 +28,6 @@ export class SerialsComponent implements OnInit {
 
 
   onClick(id:number) {
-    this.router.navigateByUrl('/serials/'+id)
+    this.router.navigateByUrl('/serials/' +id)
   }
 }
