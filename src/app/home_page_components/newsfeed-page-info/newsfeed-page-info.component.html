@@ -11,15 +11,64 @@
 
 <!--      плеер-->
       <div style="padding-top: 50px">
-        <vm-player
-          theme="dark"
-          style="--vm-player-theme: #e86c8b;"
-        >
-          <vm-youtube video-id="KPLWWIOCOOQ"></vm-youtube>
+          <h1>Using the track API to extract the content of webVTT files in <code>&lt;track&gt;</code> elements</h1>
+          <p>Click on the buttons under the video to extract the english or german subtitles
+          </p>
+          <p>Look at the HTML and JS code.</p>
+          <p>
 
-          <vm-default-ui></vm-default-ui>
-        </vm-player>
+            <button  id="buttonEnglish" (click)="loadTranscript('en');">
+              Display English transcript
+            </button>
+
+            <button  id="buttonDeutsch" (click)="loadTranscript('de');">
+              Display Deutsch transcript
+            </button>
+
+          </p>
       </div>
+        <div id="video-container">
+          <!-- Video -->
+          <div id="video_overlays" style="width: 70%;height: 40px"></div>
+
+          <video   id="myVideo" preload="metadata" controls crossOrigin="anonymous">
+            <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.mp4" type="video/mp4">
+            <source src="https://mainline.i3s.unice.fr/mooc/elephants-dream-medium.webm" type="video/webm">
+            <track id="myTrack" label="English subtitles" kind="subtitles" srclang="en" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-en.vtt">
+            <!--            <track label="Deutsch subtitles" kind="subtitles" srclang="de" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-subtitles-de.vtt">-->
+            <!--            <track label="English chapters" kind="chapters" srclang="en" src="https://mainline.i3s.unice.fr/mooc/elephants-dream-chapters-en.vtt">-->
+          </video>
+          <!-- Video Controls -->
+
+              <div id="video-controls">
+                <button  class="btn btn-outline-success my-2 my-sm-0" id="play-pause">
+                  <i  class="fas fa-play"></i>
+                </button>
+
+                  <input type="range"   id="seek-bar" value="50" min="0"  max="100">
+
+                <button type="button" class="btn btn-outline-success my-2 my-sm-0"   id="mute">
+                  <i class="fa fa-volume-up"></i>
+                </button>
+
+                  <div id="ttt" style="background-color: white;">
+                      <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+                  </div>
+
+                <button style="background-color: black" type="button" class="btn btn-outline-success my-2 my-sm-0" id="full-screen">
+                  <i  class="fa fa-expand"></i>
+                </button>
+              </div>
+
+        </div>
+
+      <div id="transcript"></div>
+
+
+
+
+
+
       <div *ngFor="let par of Paragraphs">
         <p style="padding-top: 15px;padding-right: 10px;padding-left: 10px">
           Канал FX заказал продолжение вестерна «Правосудие», выходившего с 2010 по 2015 год. Новая часть будет основана на City Primeval: High Noon in Detroit, романе Элмора Леонарда (оригинальное «Правосудие» — вольная адаптация его произведений). Тимоти Олифант, исполнитель главной роли, вновь вернется к своему персонажу.
@@ -42,3 +91,5 @@
 </div>
 
 </div>
+
+

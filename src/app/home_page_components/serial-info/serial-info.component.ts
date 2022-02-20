@@ -8,6 +8,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {AuthService} from "../../shared_services/httpService/auth.service";
 import {SerialInfoModel} from "./serialInfoModel";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Player} from "@vime/angular";
 
 
 
@@ -19,7 +20,29 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class SerialInfoComponent implements OnInit {
 
   // @ViewChild('audioTrackComponent', {static: false}) audioTrackComponent: AudioTrackComponent;
+  @ViewChild('player') player!: Player;
 
+  currentTime = 0;
+
+  // Example function to showcase updating property.
+  seekForward() {
+    this.currentTime += 5;
+  }
+
+  // Example function to showcase calling player method.
+  enterFullscreen() {
+    this.player.enterFullscreen();
+  }
+
+  onTimeUpdate(event:any) {
+    this.currentTime = event.detail;
+
+  }
+
+  onFullscreenChange(event:any) {
+    const isFullscreen = event.fullscreenElement.requestFullscreen();
+    // ...
+  }
   currentTrackAudio:any;
   serialModel:SerialInfoModel;
 
@@ -156,4 +179,7 @@ export class SerialInfoComponent implements OnInit {
   }
 
 
+  play2(event:any) {
+    this.player.enterFullscreen();
+  }
 }

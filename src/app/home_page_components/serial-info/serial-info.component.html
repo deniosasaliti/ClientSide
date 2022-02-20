@@ -121,13 +121,31 @@
     </button>
   </div>
   <div  class="modal-body">
+
     <vm-player
       theme="dark"
       style="--vm-player-theme: #e86c8b;"
+      #player
+      autoplay
+      muted
+      [currentTime]="currentTime"
+      (vmCurrentTimeChange)="onTimeUpdate($event)"
+      (vmFullscreenChange)="onFullscreenChange($event)"
+      (vmPlay)="play2($event)"
     >
       <vm-youtube video-id="KPLWWIOCOOQ"></vm-youtube>
 
-        <vm-default-ui></vm-default-ui>
+      <!-- Provider component is placed here. -->
+
+      <vm-default-ui no-controls>
+        <!-- We setup the default controls and pass in any options.  -->
+        <vm-default-controls
+          hide-on-mouse-leave
+        ></vm-default-controls>
+      </vm-default-ui>
+
+
+
     </vm-player>
 
 
