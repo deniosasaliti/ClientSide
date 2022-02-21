@@ -117,10 +117,10 @@ export class NewsfeedPageInfoComponent implements OnInit {
     })
     // @ts-ignore
     video.addEventListener('timeupdate',()=>{
-        setTimeout(()=>{
           // @ts-ignore
           slider.style.background = `linear-gradient(to right, #202020 ${Math.round((video.currentTime * 100)/video.duration)}%,gray ${Math.round((video.currentTime * 100)/video.duration)}%)`
-        },1000)
+          // @ts-ignore
+      console.log(Math.round((video.currentTime * 100)/video.duration))
     })
 
     // @ts-ignore
