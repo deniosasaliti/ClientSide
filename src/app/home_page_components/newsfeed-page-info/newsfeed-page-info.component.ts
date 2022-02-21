@@ -150,9 +150,13 @@ export class NewsfeedPageInfoComponent implements OnInit {
       if (video.paused)
       { // @ts-ignore
         video.play();
+        // @ts-ignore
+        play_pause.innerHTML = '<i class="fas fa-pause"></i>'
       }else {
         // @ts-ignore
         video.pause();
+        // @ts-ignore
+        play_pause.innerHTML = '<i  class="fas fa-play"></i>'
       }
 
     })
@@ -292,40 +296,24 @@ export class NewsfeedPageInfoComponent implements OnInit {
   }
 
    makeFullscreen() {
-
-    var video = document.getElementById("myVideo");
-
-
-
-    var elem = document.getElementById("video-container");
+    var video = document.getElementById("video-container");
 
 
 
-
-    // @ts-ignore
-     elem.requestFullscreen()
-
-     // if (document.fullscreenElement){
-     //   // @ts-ignore
-     //   document.exitFullscreen();
-     //   // @ts-ignore
-     //   elem.requestFullscreen()
-     // }
+     // @ts-ignore
+     if (!document.fullscreenElement) {
+       // @ts-ignore
+       video.requestFullscreen();
+     } else {
+       if (document.exitFullscreen) {
+         document.exitFullscreen();
+       }
+     }
   }
-    qweqwe2(){
 
-      // @ts-ignore
-      this.player.enterFullscreen()
-    // this.makeFullscreen()
-
-
-    }
 
   qweqwe() {
-    // this.player.enterFullscreen.call(this.makeFullscreen())
 
-
-      // this.player.enterFullscreen.call(this.makeFullscreen())
       this.player.play()
 
 
