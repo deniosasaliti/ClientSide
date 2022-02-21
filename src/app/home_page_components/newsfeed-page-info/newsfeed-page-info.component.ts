@@ -92,7 +92,7 @@ export class NewsfeedPageInfoComponent implements OnInit {
     // @ts-ignore
     volume_bar.style.background = 'url(assets/images/kk6.png) center center   no-repeat'
     // @ts-ignore
-    ttt.style.background =`linear-gradient(to right, white 0%, ${(slider.value-min)/(max-min)*100}%, gray ${(slider.value-min)/(max-min)*100}%, gray 0%)`
+    ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
 
 
     // @ts-ignore
@@ -100,24 +100,18 @@ export class NewsfeedPageInfoComponent implements OnInit {
       // @ts-ignore
       video.volume = volume_bar.value
       // @ts-ignore
-      ttt.style.background =`linear-gradient(to right, white 0%,  ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray 0%)`
-
-    })
-    // @ts-ignore
-    volume_bar.addEventListener('change',()=>{
-      // @ts-ignore
-      video.volume = volume_bar.value
-      // @ts-ignore
-      ttt.style.background =`linear-gradient(to right, white 0%,  ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray 0%)`
+      ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
 
     })
 
+    // slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
+
     // @ts-ignore
-    slider.style.background = `linear-gradient(to right, #202020 0%,  ${(slider.value-min)/(max-min)*100}%, #DEE2E6 ${(slider.value-min)/(max-min)*100}%, gray 0%)`
+    slider.style.background = `linear-gradient(to right, #202020 ${(slider.value)/(max)*100}%,gray ${(slider.value)/(max)*100}%)`
     // @ts-ignore
     slider.addEventListener('input',()=>{
       // @ts-ignore
-      slider.style.background = `linear-gradient(to right, #202020 0%, #202020 ${(slider.value-min)/(max-min)*100}%, #DEE2E6 ${(slider.value-min)/(max-min)*100}%,gray 0%)`
+      slider.style.background = `linear-gradient(to right, #202020 ${(slider.value)/(max)*100}%,gray ${(slider.value)/(max)*100}%)`
         // @ts-ignore
 
     })
