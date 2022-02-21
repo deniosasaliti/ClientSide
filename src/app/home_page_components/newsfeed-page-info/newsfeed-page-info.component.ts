@@ -107,13 +107,20 @@ export class NewsfeedPageInfoComponent implements OnInit {
     // slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
 
     // @ts-ignore
-    slider.style.background = `linear-gradient(to right, #202020 ${(slider.value)/(max)*100}%,gray ${(slider.value)/(max)*100}%)`
+    slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
     // @ts-ignore
     slider.addEventListener('input',()=>{
       // @ts-ignore
-      slider.style.background = `linear-gradient(to right, #202020 ${(slider.value)/(max)*100}%,gray ${(slider.value)/(max)*100}%)`
+      slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
         // @ts-ignore
 
+    })
+    // @ts-ignore
+    video.addEventListener('timeupdate',()=>{
+        setTimeout(()=>{
+          // @ts-ignore
+          slider.style.background = `linear-gradient(to right, #202020 ${Math.round((video.currentTime * 100)/video.duration)}%,gray ${Math.round((video.currentTime * 100)/video.duration)}%)`
+        },1000)
     })
 
     // @ts-ignore
@@ -121,9 +128,15 @@ export class NewsfeedPageInfoComponent implements OnInit {
       // @ts-ignore
       video.currentTime = video.duration * (slider.value / 100);
       // @ts-ignore
-
-
     })
+    // @ts-ignore
+    slider.addEventListener('input',()=>{
+      // @ts-ignore
+      video.currentTime = video.duration * (slider.value / 100);
+      // @ts-ignore
+    })
+
+
 
     var play_pause = document.getElementById("play-pause");
     var video_container = document.getElementById('video-container')
@@ -134,7 +147,14 @@ export class NewsfeedPageInfoComponent implements OnInit {
     // @ts-ignore
     play_pause.addEventListener('click',()=>{
       // @ts-ignore
-      video.play();
+      if (video.paused)
+      { // @ts-ignore
+        video.play();
+      }else {
+        // @ts-ignore
+        video.pause();
+      }
+
     })
     // @ts-ignore
     video_container.addEventListener('mouseout',()=>{
