@@ -69,14 +69,19 @@ export class NewsfeedPageInfoComponent implements OnInit {
     this.loadTranscript("en")
     var video = document.getElementById('myVideo')
     this.video.controls = false;
-    var videoControls = document.getElementById('video-controls');
-    var videoWorks = !!document.createElement('video').canPlayType;
     var fullscreen = document.getElementById('full-screen');
     var slider = document.getElementById("seek-bar")
     var volume_bar = document.getElementById('volume-bar');
+    var mute_button = document.getElementById("mute");
+    var video_container = document.getElementById("video-container");
+
     // @ts-ignore
     fullscreen.addEventListener('click',()=>this.makeFullscreen())
 
+    // @ts-ignore
+    video.addEventListener('click',()=>this.play_or_pause())
+    // @ts-ignore
+    video.addEventListener('dblclick',()=>this.makeFullscreen())
 
     // @ts-ignore
     var min = slider.min
@@ -116,6 +121,21 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
     })
     // @ts-ignore
+    mute_button.addEventListener('click',()=>{
+      // @ts-ignore
+      if (video.muted){
+        // @ts-ignore
+        video.muted = false;
+        // @ts-ignore
+        mute_button.innerHTML = '<i class="fa fa-volume-up"></i>'
+      }else {
+        // @ts-ignore
+        video.muted = true;
+        // @ts-ignore
+        mute_button.innerHTML = '<i class="fa fa-volume-mute"></i>'
+      }
+    })
+    // @ts-ignore
     video.addEventListener('timeupdate',()=>{
           // @ts-ignore
           slider.style.background = `linear-gradient(to right, #202020 ${Math.round((video.currentTime * 100)/video.duration)}%,gray ${Math.round((video.currentTime * 100)/video.duration)}%)`
@@ -139,27 +159,12 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
 
     var play_pause = document.getElementById("play-pause");
-    var video_container = document.getElementById('video-container')
     var controls= document.getElementById('video-controls');
     // @ts-ignore
     controls.hidden = false
 
     // @ts-ignore
-    play_pause.addEventListener('click',()=>{
-      // @ts-ignore
-      if (video.paused)
-      { // @ts-ignore
-        video.play();
-        // @ts-ignore
-        play_pause.innerHTML = '<i class="fas fa-pause"></i>'
-      }else {
-        // @ts-ignore
-        video.pause();
-        // @ts-ignore
-        play_pause.innerHTML = '<i  class="fas fa-play"></i>'
-      }
-
-    })
+    play_pause.addEventListener('click',()=>this.play_or_pause());
     // @ts-ignore
     video_container.addEventListener('mouseout',()=>{
       // @ts-ignore
@@ -219,13 +224,6 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
         var trackAsHtmlElem = trackElems[i];
         var cues = track.cues;
-
-          // var cue = cues;
-          // // this.addCueListeners(cue);
-          //
-          // var transText = cue.text;
-          // var clickableTransText = "<li class='cues' id=" + cue.id + " onclick='jumpTo(" + cue.startTime + ");'" + ">" + transText + "</li>";
-
 
         //append all the subtitle texts to
         if(trackAsHtmlElem.readyState === 2) {
@@ -297,6 +295,7 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
    makeFullscreen() {
     var video = document.getElementById("video-container");
+    var full_screen = document.getElementById('full-screen');
 
 
 
@@ -304,20 +303,37 @@ export class NewsfeedPageInfoComponent implements OnInit {
      if (!document.fullscreenElement) {
        // @ts-ignore
        video.requestFullscreen();
+       // @ts-ignore
+       full_screen.innerHTML = '<i class="fa fa-compress"></i>';
      } else {
        if (document.exitFullscreen) {
+         // @ts-ignore
+         full_screen.innerHTML ='<i  class="fa fa-expand"></i>';
          document.exitFullscreen();
        }
      }
   }
 
+  play_or_pause(){
 
-  qweqwe() {
-
-      this.player.play()
-
-
+    var video = document.getElementById("myVideo")
+    var play_pause = document.getElementById("play-pause")
+    // @ts-ignore
+    if (video.paused)
+    { // @ts-ignore
+      video.play();
+      // @ts-ignore
+      play_pause.innerHTML = '<i class="fas fa-pause"></i>'
+    }else {
+      // @ts-ignore
+      video.pause();
+      // @ts-ignore
+      play_pause.innerHTML = '<i  class="fas fa-play"></i>'
+    }
   }
+
+
+
 
 
 
