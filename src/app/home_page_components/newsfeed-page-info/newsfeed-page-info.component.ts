@@ -93,11 +93,13 @@ export class NewsfeedPageInfoComponent implements OnInit {
     var max_volume = volume_bar.max
     // @ts-ignore
     var min_volume = volume_bar.min
+    var is_change_scrolled:boolean;
 
     // @ts-ignore
-    volume_bar.style.background = 'url(assets/images/kk6.png) center center   no-repeat'
-    // @ts-ignore
     ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
+
+
+
 
 
     // @ts-ignore
@@ -107,9 +109,35 @@ export class NewsfeedPageInfoComponent implements OnInit {
       // @ts-ignore
       ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
 
+
+
+      // @ts-ignore
+      if (volume_bar.value < 0.15){
+        // @ts-ignore
+        mute_button.innerHTML = '<i class="fa fa-volume-mute"></i>'
+        // @ts-ignore
+        video.volume = 0;
+        // @ts-ignore
+        video.muted = true;
+         is_change_scrolled = true;
+
+
+      }else { // @ts-ignore
+        if (volume_bar.value < 0.5){
+                // @ts-ignore
+                mute_button.innerHTML = '<i class="fa fa-volume-down"></i>'
+              } else {
+                        // @ts-ignore
+                        mute_button.innerHTML = '<i class="fa fa-volume-up"></i>';
+
+
+        }
+      }
+
     })
 
-    // slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
+
+
 
     // @ts-ignore
     slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
@@ -117,22 +145,39 @@ export class NewsfeedPageInfoComponent implements OnInit {
     slider.addEventListener('input',()=>{
       // @ts-ignore
       slider.style.background = `linear-gradient(to right, #202020 ${(slider.value-min)/(max-min)*100}%,gray ${(slider.value-min)/(max-min)*100}%)`
-        // @ts-ignore
-
     })
     // @ts-ignore
     mute_button.addEventListener('click',()=>{
+
       // @ts-ignore
       if (video.muted){
         // @ts-ignore
         video.muted = false;
         // @ts-ignore
         mute_button.innerHTML = '<i class="fa fa-volume-up"></i>'
-      }else {
+        // @ts-ignore
+        ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
+        if (is_change_scrolled){
+          is_change_scrolled = false;
+          // @ts-ignore
+          video.volume=0.5
+          // @ts-ignore
+          volume_bar.value = 0.5
+          // @ts-ignore
+          ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
+        }
+        else {
+          // @ts-ignore
+          ttt.style.background =`linear-gradient(to right, white ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%, gray ${(volume_bar.value-min_volume)/(max_volume-min_volume)*100}%)`
+        }
+         }else {
+
         // @ts-ignore
         video.muted = true;
         // @ts-ignore
         mute_button.innerHTML = '<i class="fa fa-volume-mute"></i>'
+        // @ts-ignore
+        ttt.style.background ='grey';
       }
     })
     // @ts-ignore
@@ -147,13 +192,12 @@ export class NewsfeedPageInfoComponent implements OnInit {
     slider.addEventListener('change',()=>{
       // @ts-ignore
       video.currentTime = video.duration * (slider.value / 100);
-      // @ts-ignore
     })
     // @ts-ignore
     slider.addEventListener('input',()=>{
       // @ts-ignore
       video.currentTime = video.duration * (slider.value / 100);
-      // @ts-ignore
+
     })
 
 
@@ -173,7 +217,6 @@ export class NewsfeedPageInfoComponent implements OnInit {
     // @ts-ignore
     video_container.addEventListener("mouseover", ()=>{
       // @ts-ignore
-
       controls.hidden = false;
     })
 

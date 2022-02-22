@@ -155,8 +155,7 @@ button:hover {
   cursor: pointer;
   /*background: url(src/assets/images/222.png) left center   no-repeat;*/
   box-shadow: inset 0 0 0 16px black; /* <-- 10px spread radius */
-
-
+  background: url("src/assets/images/kk6.png") center center no-repeat;
 
 }
 
