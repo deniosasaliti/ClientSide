@@ -32,12 +32,17 @@
 #video_overlays {
   position: absolute;
   background-color: transparent;
-  color: red;
+  color: white;
+  font-size: 20px;
   z-index: 1 !important;
   left: 20px;
   right: 20px;
   top: 50px;
   bottom: 20px;
+
+
+
+
 
 }
 #video_box{
@@ -177,6 +182,7 @@ button:hover {
   background-color: black;
   border: none;
   border-radius: 0;
+  width: 40px;
 }
 .btn-outline-success{color:#28a745;border-color:#28a745}
 .btn-outline-success:hover{color:#fff;background-color:#28a745;border-color:#28a745}

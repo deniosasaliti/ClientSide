@@ -11,6 +11,10 @@ export class NewsfeedPageInfoComponent implements OnInit {
   @ViewChild('player') player!: Player;
   currentTime = 0;
   elem: any;
+  promise:Promise<void> = new Promise<void>(()=>{
+
+  })
+
   // fsEventHandler: any = this.onFullscreenChange.bind(this);
 
   // Example function to showcase updating property.
@@ -224,6 +228,8 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
   }
 
+   uniqueWolds:Set<string> = new Set(['Proog','Emo']);
+
   lastNews = [
     {q: "1"},
     {q: "1"},
@@ -310,14 +316,36 @@ export class NewsfeedPageInfoComponent implements OnInit {
     }
   }
   addCueListeners(cue:any) {
+    var uniqueWolds1 = this.uniqueWolds;
     cue.onenter = function(){
       console.log('enter id=' + cue.id);
       var transcriptText = document.getElementById(cue.id);
-       var qwe = document.getElementById('video_overlays');
+       var video_overlays = document.getElementById('video_overlays');
+
+
+      var cueWordArray = cue.text.split(' ');
+      for (var i=0; i < cueWordArray.length; i++){
+        if (uniqueWolds1.has(cueWordArray[i].replaceAll(/[\p{P}]/gu,"").replaceAll('<vProog>',"").replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',""))){
+          // @ts-ignore
+          video_overlays.style.color = 'red';
+          console.log("has" + "  " + cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',""))
+          // @ts-ignore
+          video_overlays.innerHTML += "<a class='cues' id=" + i +  " onclick='showOptions(" + i + ");'" + ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',"") + "</a>" +" ";
+          // @ts-ignore
+          var another_color_div = document.getElementById(i).style.color = "red";
+        }
+        else {
+          // @ts-ignore
+          video_overlays.innerHTML +=  "<a class='cues' id=" + i +  " onclick='showOptions(" + i + ");'" + ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',"") + "</a>" +" ";
+
+          console.log("hasNot" + "  "+ cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',""))
+        }
+        // @ts-ignore
+      }
 
 
          // @ts-ignore
-      qwe.innerHTML = cue.text;
+      // video_overlays.innerHTML = cue.text;
 
       // @ts-ignore
       // transcriptText.innerHTML = '1';
@@ -330,18 +358,17 @@ export class NewsfeedPageInfoComponent implements OnInit {
       console.log('exit id=' + cue.id);
       var transcriptText = document.getElementById(cue.id);
       // transcriptText.classList.remove("current");
-      var qwe = document.getElementById('video_overlays');
+      var video_overlays = document.getElementById('video_overlays');
       // @ts-ignore
-      qwe.innerHTML = "";
+      video_overlays.style.color = 'white';
+      // @ts-ignore
+      video_overlays.innerHTML = "";
     };
   }
 
    makeFullscreen() {
     var video = document.getElementById("video-container");
     var full_screen = document.getElementById('full-screen');
-
-
-
      // @ts-ignore
      if (!document.fullscreenElement) {
        // @ts-ignore
@@ -373,6 +400,14 @@ export class NewsfeedPageInfoComponent implements OnInit {
       // @ts-ignore
       play_pause.innerHTML = '<i  class="fas fa-play"></i>'
     }
+  }
+
+  ff():Promise<string> {
+    return new Promise<string>(a=>{
+        return   a+"";
+      })
+
+
   }
 
 
