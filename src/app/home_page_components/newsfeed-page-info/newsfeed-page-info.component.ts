@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Player} from "@vime/angular";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
 // const logo = require('src/assets/images/stick.png').default as string;
 @Component({
   selector: 'app-newsfeed-page-info',
@@ -36,15 +38,8 @@ export class NewsfeedPageInfoComponent implements OnInit {
     const isFullscreen = event.fullscreenElement.requestFullscreen();
     // ...
   }
-  constructor() {
-    // let trackElems = document.querySelectorAll("track");
-    //
-    // for(var i = 0; i < trackElems.length; i++) {
-    //
-    //   var currentTrackElem = trackElems[i];
-    //   this.tracksURLs[i] = currentTrackElem.src;
-    //
-    // }
+  constructor(private http:HttpClient) {
+
   }
   displayCuesAfterTrackLoaded(trackElem:any, track:any) {
     // Create a listener that will be called only when the track has
@@ -64,6 +59,7 @@ export class NewsfeedPageInfoComponent implements OnInit {
   // @ViewChild('buttonDeutsch') buttonDeutsch: ElementRef;
   transcriptDiv: any;
   video: any
+  another_color_div:any
   tracks: any
   textqwe:HTMLElement
   trackElems = [];
@@ -316,31 +312,73 @@ export class NewsfeedPageInfoComponent implements OnInit {
     }
   }
   addCueListeners(cue:any) {
-    var uniqueWolds1 = this.uniqueWolds;
+    let  another_color_div = this.another_color_div;
+    let uniqueWolds1 = this.uniqueWolds;
+    let cueWordArray = cue.text.split(' ');
     cue.onenter = function(){
       console.log('enter id=' + cue.id);
-      var transcriptText = document.getElementById(cue.id);
-       var video_overlays = document.getElementById('video_overlays');
+      let transcriptText = document.getElementById(cue.id);
+       let video_overlays = document.getElementById('video_overlays');
 
 
-      var cueWordArray = cue.text.split(' ');
-      for (var i=0; i < cueWordArray.length; i++){
-        if (uniqueWolds1.has(cueWordArray[i].replaceAll(/[\p{P}]/gu,"").replaceAll('<vProog>',"").replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',""))){
+      console.log(cueWordArray.length)
+
+
+      for (let i=0; i < cueWordArray.length; i++){
+
+        // @ts-ignore
+        video_overlays.innerHTML += "<a class='cues' id=" + "h" + i +   ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
+
+
+        if (uniqueWolds1.has(cueWordArray[i].replaceAll(/[\p{P}]/gu,""))){
           // @ts-ignore
-          video_overlays.style.color = 'red';
-          console.log("has" + "  " + cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',""))
+
+          console.log("has" + "  " + cueWordArray[i].replaceAll(/[\p{P}]/gu,""))
           // @ts-ignore
-          video_overlays.innerHTML += "<a class='cues' id=" + i +  " onclick='showOptions(" + i + ");'" + ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',"") + "</a>" +" ";
+          // video_overlays.innerHTML += "<a class='cues' id=" + "h" + i +   ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
           // @ts-ignore
-          var another_color_div = document.getElementById(i).style.color = "red";
+           another_color_div = document.getElementById("h" + i);
+
+          // @ts-ignore
+          another_color_div.style.color = "red"
+          // @ts-ignore
+          // another_color_div.addEventListener('click',()=>{
+          //  console.log(  "asdasdasd")
+          // })
+
+
         }
         else {
-          // @ts-ignore
-          video_overlays.innerHTML +=  "<a class='cues' id=" + i +  " onclick='showOptions(" + i + ");'" + ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',"") + "</a>" +" ";
 
-          console.log("hasNot" + "  "+ cueWordArray[i].replaceAll(/[\p{P}]/gu,"").trimLeft('<').replaceAll('<v>',"").replaceAll('<v',"").replaceAll('Proog>',"").replaceAll('Emo>',""))
+
+          // @ts-ignore
+          // video_overlays.innerHTML +=  "<a class='cues' id=" + "h" + i + ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
+
+          // // @ts-ignore
+          // var ss = document.getElementById(i);
+          // // @ts-ignore
+          // ss.addEventListener('click',()=>{
+          //   console.log("asdasdasd")
+          // })
+
+
+          // video_overlays.innerHTML += "<a class='cues' id=" + "h" + i +   ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
+
+
+          console.log("hasNot" + "  "+ cueWordArray[i].replaceAll(/[\p{P}]/gu,""))
         }
-        // @ts-ignore
+
+
+        console.log("bbbbb"+ i)
+        console.log(""+i)
+         // @ts-ignore
+        cueWordArray[i].addEventListener('click',()=>{
+            console.log('222222')
+
+        },false);
+
+
+
       }
 
 
@@ -363,7 +401,9 @@ export class NewsfeedPageInfoComponent implements OnInit {
       video_overlays.style.color = 'white';
       // @ts-ignore
       video_overlays.innerHTML = "";
-    };
+
+    }
+
   }
 
    makeFullscreen() {
@@ -410,9 +450,32 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
   }
 
+  translate(): Observable<any>{
 
+  let header = new HttpHeaders({
+    'content-type': 'application/x-www-form-urlencoded',
+    'x-rapidapi-host': 'google-translate20.p.rapidapi.com',
+    'x-rapidapi-key': '8c4841be28msh86bbd599cddc4b8p1aa5cfjsne8ecb1bac1dd',
+    'Content-Type': 'application/json'});
+  const requestOptions = {headers: header};
 
+   return  this.http.post("https://google-translate20.p.rapidapi.com/translate", {
+      "text": "this",
+      "tl": "ru",
+      "sl": "en"
+  },requestOptions)
+}
 
+  qwe(){
+    var t = document.getElementById('tts');
+    this.translate().subscribe(result=>{
+      console.log(result.data.translation)
+    })
+  }
+  showOptions(s:string){
+    console.log(s)
+
+  }
 
 
 }
