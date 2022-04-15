@@ -2,6 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Player} from "@vime/angular";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {retry} from "rxjs/operators";
+
+
+
 // const logo = require('src/assets/images/stick.png').default as string;
 @Component({
   selector: 'app-newsfeed-page-info',
@@ -38,17 +42,45 @@ export class NewsfeedPageInfoComponent implements OnInit {
     const isFullscreen = event.fullscreenElement.requestFullscreen();
     // ...
   }
-  constructor(private http:HttpClient) {
+  constructor(private  http:HttpClient) {
 
   }
   displayCuesAfterTrackLoaded(trackElem:any, track:any) {
     // Create a listener that will be called only when the track has
     // been loaded
     trackElem.addEventListener('load', (e: Event) => {
-      console.log("track loaded");
+      var k=0;
+     var cues =  track.cues
+      var array =[];
+      for (let i =0; i< cues.length;i++){
+       var text= cues[i].text.split(' ')
+
+        if (i ==0){
+          k=0;
+        }else{
+
+          k+=cues[i-1].text.split(' ').length;
+          console.log("text.length"+ text.length)
+        }
+        var l= 0;
+        for (let j = k; j<text.length+k;j++){
+
+          console.log("j_is " + j)
+          array[j] ="<" +text[l++] + ">";
+        }
+
+
+      }
+      console.log(array)
+
+      // this.translate(JSON.stringify(array)).subscribe(res=>console.log(res))
+
+      console.log("load_Tracks_WithOut_Display");
      this.loadTracksWithOutDisplay(track);
     });
   }
+
+
 
 
 
@@ -65,7 +97,6 @@ export class NewsfeedPageInfoComponent implements OnInit {
   trackElems = [];
 
   ngOnInit(): void {
-
     this.loadTranscript("en")
     var video = document.getElementById('myVideo')
     this.video.controls = false;
@@ -267,14 +298,40 @@ export class NewsfeedPageInfoComponent implements OnInit {
         track.mode="hidden";
 
 
+
+
         var trackAsHtmlElem = trackElems[i];
         var cues = track.cues;
 
+
+        //
+        //         // for (let k =0; k< track.cues.length; k++){
+        //         //   console.log(cues[k].text.split(' '))
+        //         // }
+        //       //   var stringArray = [
+        //       //     "<this>",
+        //       //     "<is>",
+        //       //     "<true>"
+        //       //
+        //       //   ]
+      //   var jsonObj = JSON.stringify(stringArray)
+      //
+      //
+      //     console.log("jsonObj " + jsonObj)
+      //
+      // this.translate(jsonObj).subscribe((res)=>
+      // console.log(res))
+
+
+
+
         //append all the subtitle texts to
         if(trackAsHtmlElem.readyState === 2) {
+
           this.displayCues(track)
         }
         else {
+
           this.displayCuesAfterTrackLoaded(trackAsHtmlElem,track)
         }
       }
@@ -303,22 +360,24 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
   }
   loadTracksWithOutDisplay(track:any){
-    var cues = track.cues;
+    let cues = track.cues;
 
     //append all the subtitle texts to
-    for(var i=0; i < cues.length; i++) {
-      var cue = cues[i];
+    for(let i=0; i < cues.length; i++) {
+      let cue = cues[i];
       this.addCueListeners(cue);
     }
   }
   addCueListeners(cue:any) {
-    let  another_color_div = this.another_color_div;
-    let uniqueWolds1 = this.uniqueWolds;
-    let cueWordArray = cue.text.split(' ');
+
+    var uniqueWolds1 = this.uniqueWolds;
+    var that = this;
+
+    var cueWordArray = cue.text.split(' ');
     cue.onenter = function(){
+
       console.log('enter id=' + cue.id);
-      let transcriptText = document.getElementById(cue.id);
-       let video_overlays = document.getElementById('video_overlays');
+      const video_overlays = document.getElementById('video_overlays');
 
 
       console.log(cueWordArray.length)
@@ -326,18 +385,59 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
       for (let i=0; i < cueWordArray.length; i++){
 
+
+        console.log("bbbbb"+ i)
+        console.log(i)
         // @ts-ignore
-        video_overlays.innerHTML += "<a class='cues' id=" + "h" + i +   ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
+        video_overlays.innerHTML += "<a class='cues' id="  + i +   ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
+         // @ts-ignore
+       let ss = document.getElementById(i+"")
+        // @ts-ignore
+         var nodes = video_overlays.childNodes;
+
+
+        nodes.forEach((a,index)=>{
+          a.addEventListener('click',()=>{
+            // @ts-ignore
+            let t = document.getElementById(index+"").innerHTML;
+
+            // console.log( "index_is" + t);
+
+
+
+
+
+            that.qwe(index+"");
+
+          })
+        });
+
+        // for (let j = 0; j < nodes.length; j++) {
+        //   nodes[j].addEventListener('click',()=>{
+        //     console.log(j);
+        //     this.qwe("s")
+        //   })
+        // }
+
+        //   let el = childNodes[i]
+        // // @ts-ignore
+        // ss.addEventListener('click',()=>{
+        //   console.log("sss")
+        //
+        //
+        // })
+
+
+
 
 
         if (uniqueWolds1.has(cueWordArray[i].replaceAll(/[\p{P}]/gu,""))){
           // @ts-ignore
-
           console.log("has" + "  " + cueWordArray[i].replaceAll(/[\p{P}]/gu,""))
           // @ts-ignore
           // video_overlays.innerHTML += "<a class='cues' id=" + "h" + i +   ">" + cueWordArray[i].replaceAll(/[\p{P}]/gu,"") + "</a>";
           // @ts-ignore
-           another_color_div = document.getElementById("h" + i);
+          var another_color_div = document.getElementById(i);
 
           // @ts-ignore
           another_color_div.style.color = "red"
@@ -369,17 +469,21 @@ export class NewsfeedPageInfoComponent implements OnInit {
         }
 
 
-        console.log("bbbbb"+ i)
-        console.log(""+i)
-         // @ts-ignore
-        cueWordArray[i].addEventListener('click',()=>{
-            console.log('222222')
 
-        },false);
+
+
+        // item.addEventListener('click',()=>{
+        //   console.log("www");
+        // })
 
 
 
       }
+
+
+
+
+
 
 
          // @ts-ignore
@@ -406,6 +510,8 @@ export class NewsfeedPageInfoComponent implements OnInit {
 
   }
 
+
+
    makeFullscreen() {
     var video = document.getElementById("video-container");
     var full_screen = document.getElementById('full-screen');
@@ -422,6 +528,9 @@ export class NewsfeedPageInfoComponent implements OnInit {
          document.exitFullscreen();
        }
      }
+  }
+  someFunc() {
+
   }
 
   play_or_pause(){
@@ -442,39 +551,75 @@ export class NewsfeedPageInfoComponent implements OnInit {
     }
   }
 
-  ff():Promise<string> {
-    return new Promise<string>(a=>{
-        return   a+"";
-      })
+  ff():Promise<any> {
+    const encodedParams = new URLSearchParams();
+    encodedParams.append("q", "Hello, world!");
+    encodedParams.append("target", "ru");
+    encodedParams.append("source", "en");
 
+    const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
 
+    const options = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'Accept-Encoding': 'application/gzip',
+        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com',
+        'X-RapidAPI-Key': '8c4841be28msh86bbd599cddc4b8p1aa5cfjsne8ecb1bac1dd'
+      },
+      body: encodedParams
+    };
+
+   return  fetch(url, options)
+      .then(res => res.text())
+      .then(json => console.log(json))
+      .catch(err => console.error('error:' + err));
   }
 
-  translate(): Observable<any>{
+
+
+
+   translate(text:string): Observable<any>{
+
+
+
 
   let header = new HttpHeaders({
     'content-type': 'application/x-www-form-urlencoded',
-    'x-rapidapi-host': 'google-translate20.p.rapidapi.com',
-    'x-rapidapi-key': '8c4841be28msh86bbd599cddc4b8p1aa5cfjsne8ecb1bac1dd',
-    'Content-Type': 'application/json'});
+    'Accept-Encoding': 'gzip',
+    'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com',
+    'X-RapidAPI-Key': '8c4841be28msh86bbd599cddc4b8p1aa5cfjsne8ecb1bac1dd',
+  });
   const requestOptions = {headers: header};
 
-   return  this.http.post("https://google-translate20.p.rapidapi.com/translate", {
-      "text": "this",
-      "tl": "ru",
-      "sl": "en"
-  },requestOptions)
+   return   this.http.post('https://google-translate1.p.rapidapi.com/language/translate/v2', {
+     q: text,
+     target: 'ru',
+     source: 'en'
+  })
+
+
 }
 
-  qwe(){
-    var t = document.getElementById('tts');
-    this.translate().subscribe(result=>{
-      console.log(result.data.translation)
-    })
+
+    qwe(id:string){
+
+      // // @ts-ignore
+      // var t = document.getElementById(id).innerHTML;
+      //
+      // console.log(t)
+      // @ts-ignore
+    // this.translate(t).subscribe(result=>{
+    //   console.log(result.data.translation)
+    // })
+      this.ff();
   }
   showOptions(s:string){
     console.log(s)
 
+  }
+  yy(){
+    console.log("lllllllllllllllll");
   }
 
 
