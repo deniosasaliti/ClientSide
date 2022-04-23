@@ -99,7 +99,8 @@
 
 
     <div style="margin-top: 5px; ">
-    <app-audio-track [trackName]="audio.name"   [changing]="changingValue" [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)" (trackIntervalId)="setInterval($event)"></app-audio-track>
+    <app-audio-track [trackName]="audio.name"     [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)" (trackIntervalId)="setInterval($event)"></app-audio-track>
+<!--      <audio controls src="{{audio.url}}"></audio>-->
     </div>
 
     </div>

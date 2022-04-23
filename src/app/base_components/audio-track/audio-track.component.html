@@ -2,7 +2,7 @@
 <ng-template #playButton>
   <div style="padding-right: 20px;display: table-cell;height: 60px">
     <div style="display: flex;justify-content: center;align-items: center;height: 30px;width: inherit">
-  <button class="btn btn-outline-success my-2 my-sm-0" style="border-radius: 50%;padding-top: 5px"   (click)="play();isTrackPlay.emit(this.audio);trackIntervalId.emit(this.idInterval)">
+  <button class="btn btn-outline-success my-2 my-sm-0" style="border-radius: 50%;padding-top: 5px"   (click)="playQ();isTrackPlay.emit(this.audio);trackIntervalId.emit(this.idInterval)">
     <i class="fas fa-play"></i>
   </button>
     </div>
@@ -22,7 +22,7 @@
     <div  style="display: inline-block;">
       <div>
         <h1 style="font-size: 15px;">qweqwe</h1>
-        <input style="width: 200px;position: relative" type="range"  min="0" step="1"   max="{{max}}}" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
+        <input id="bar" #input  class="bar" style="width: 200px; top: 10px; position:  relative" type="range"  min="0"     max="100" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
       </div>
     </div>
 

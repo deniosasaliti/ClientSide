@@ -34,6 +34,7 @@ import { NewsfeedBlockComponent } from './base_components/newsfeed-block/newsfee
 import { NewsfeedPageInfoComponent } from './home_page_components/newsfeed-page-info/newsfeed-page-info.component';
 import { LastNewsItemComponent } from './base_components/last-news-item/last-news-item.component';
 import { MainPageComponent } from './home_page_components/main-page/main-page.component';
+import { PlayerComponent } from './base_components/player/player.component';
 
 
 
@@ -63,7 +64,8 @@ import { MainPageComponent } from './home_page_components/main-page/main-page.co
     NewsfeedBlockComponent,
     NewsfeedPageInfoComponent,
     LastNewsItemComponent,
-    MainPageComponent
+    MainPageComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

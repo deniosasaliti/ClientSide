@@ -24,6 +24,7 @@ export class SerialInfoComponent implements OnInit {
 
   currentTime = 0;
 
+
   // Example function to showcase updating property.
   seekForward() {
     this.currentTime += 5;
@@ -52,7 +53,7 @@ export class SerialInfoComponent implements OnInit {
               private router:Router) {
 
   }
-  changingValue: Subject<any> = new Subject();
+  // changingValue: Subject<any> = new Subject();
 
   isPlay:boolean;
   sliderVal: number = 0;
@@ -81,9 +82,9 @@ export class SerialInfoComponent implements OnInit {
   setInterval(interval:any) {
     this.idInterval = interval;
   }
-  isPlayT(audio:any){
+   isPlayT(audio:any){
 
-    if (this.currentTrackAudio !=null && this.currentTrackAudio.played){
+    if (this.currentTrackAudio !=null && !this.currentTrackAudio.paused && !this.currentTrackAudio.ended && audio!=this.currentTrackAudio){
 
     this.stopC22()
 
@@ -132,34 +133,36 @@ export class SerialInfoComponent implements OnInit {
 
   audios = [
     {url:'assets/123.mp3',name:'qwe'},
-    {url:'assets/333.mp3',name:'qwe2'}
+    {url:'assets/333.mp3',name:'qwe2'},
+    {url:'assets/Eminem.mp3',name:'qwe2'}
   ];
 
 
-  play() {
-    this.currentTrackAudio.load();
-    this.currentTrackAudio.currentTime = this.sliderVal;
-    this.currentTrackAudio.play();
+  // play() {
+  //   this.currentTrackAudio.load();
+  //   this.currentTrackAudio.currentTime = this.sliderVal;
+  //   this.currentTrackAudio.play();
+  //
+  //
+  //
+  //
+  //   this.isPlay = this.currentTrackAudio.played;
+  //   this.timeUp(this.isPlay);
+  //
+  //
+  //
+  // }
 
-
-
-
-    this.isPlay = this.currentTrackAudio.played;
-    this.timeUp(this.isPlay);
-
-
-
-  }
-
-  changeTime(value:any){
-    this.currentTrackAudio.currentTime = value;
-
-  }
+  // changeTime(value:any){
+  //   this.currentTrackAudio.currentTime = value;
+  //
+  // }
 
 
   stopC22() {
     this.isPlay = false;
-    this.sliderVal = this.currentTrackAudio.currentTime;
+    this.sliderVal = Math.round(this.currentTrackAudio.currentTime*100/this.currentTrackAudio.duration);
+
     this.currentTrackAudio.pause();
     clearInterval(this.idInterval)
   }
@@ -182,4 +185,6 @@ export class SerialInfoComponent implements OnInit {
   play2(event:any) {
     this.player.enterFullscreen();
   }
+
+
 }
