@@ -3,6 +3,7 @@ import {SlickCarouselComponent, SlickCarouselModule} from 'ngx-slick-carousel';
 import {PostComponent} from "../post/post.component";
 import {ActorCardComponent} from "../actor-card/actor-card.component";
 import {Container} from "angular-responsive-carousel/lib/container";
+import {FirstSharedService} from "../../shared_services/first-shared.service";
 
 
 @Component({
@@ -42,6 +43,9 @@ export class StripSliderComponent implements OnInit {
 
 
 
+
+
+
   slideConfig = {"slidesToShow": 6, "slidesToScroll": 3,"infinite": false,arrows: true};
 
 
@@ -74,12 +78,19 @@ export class StripSliderComponent implements OnInit {
   }
 
 
-  constructor() {}
+  constructor(private sharedService:FirstSharedService) {
+
+  }
 
 
 
   ngOnInit(): void {
+
   }
 
 
+  onClick(slide:any) {
+      this.sharedService.subject.next(slide)
+    console.log(slide.name)
+  }
 }

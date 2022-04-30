@@ -148,7 +148,7 @@ export class AudioTrackComponent implements  OnInit{
       // @ts-ignore
       this.input.nativeElement.addEventListener('input',()=>{
         // @ts-ignore
-        this.input.nativeElement.style.background = `linear-gradient(to right, #202020 ${Math.round(this.input.nativeElement.value)}%,gray ${Math.round(this.input.nativeElement.value)}%)`
+        this.input.nativeElement.style.background = `linear-gradient(to right, #202020 ${Math.round(this.input.nativeElement.value)}%,green ${Math.round(this.input.nativeElement.value)}%)`
         console.log("min "+ min)
         console.log('max ' + max)
         // console.log('sliderVal ' + this.sliderVal)
@@ -162,7 +162,7 @@ export class AudioTrackComponent implements  OnInit{
 
         // @ts-ignore
         // sl[i].style.background = `linear-gradient(to right, #202020 ${Math.round((this.audio.currentTime * 100)/this.audio.duration)}%,gray ${Math.round((this.audio.currentTime * 100)/this.audio.duration)}%)`
-        this.input.nativeElement.style.background = `linear-gradient(to right, #202020 ${Math.round(this.input.nativeElement.value)}%,gray ${Math.round(this.input.nativeElement.value)}%)`
+        this.input.nativeElement.style.background = `linear-gradient(to right, #202020 ${Math.round(this.input.nativeElement.value)}%,green ${Math.round(this.input.nativeElement.value)}%)`
 
         console.log('currTimeIs  '+  this.audio.currentTime)
         console.log('this.audio.duration  '+  this.audio.duration)

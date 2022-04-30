@@ -1,3 +1,6 @@
 export class SerialModel {
-  serialId: number;
+  id: number;
+  status:string;
+  originalName:string;
+  imageUrl:string;
 }

@@ -1,11 +1,40 @@
+<ng-template #imageElse>
+  <div>
+    <div   class="card-body" style="width: 183px;height: 300px;border: 1px solid blue;margin: 2px">
+      no_image
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #content let-modal>
+  <div class="row">
+    <div class="col">
+    <div *ngIf="isUrlPresent;else imageElse">
+      <div  class="card-body">
+        <img class="img-fluid rounded " src="{{actor_url}}" style="height: 80%"/>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+      <button class="btn btn-lg btn-outline-primary" style="width: 100%">удалить</button>
+      <button class="btn btn-lg btn-outline-primary" style="width: 100%">заменить</button>
+      <button class="btn btn-lg btn-outline-primary" style="width: 80%;position: absolute;bottom: 2px;left: 2px;right: 0">принять</button>
+  </div>
+</div>
+</ng-template>
+
+
 <div class="card   " style="width: 183px;height: 300px; margin: 2px">
   <!-- Preview image figure-->
+  <button class="btn btn-lg btn-outline-primary"  *ngIf="isModerate"  (click)="onClick(content);$event.stopPropagation()" style="top: 50%;left: 20%;position: absolute;width: 60%;height: 50px;font-size: 15px;padding: 0">Редактировать</button>
   <div class="card-body">
     <img class="img-fluid rounded " src="{{actor_url}}" style="height: 80%" alt="..."/>
     <div class="mt-2" style="text-align: center">
       <a class="a-hover" >{{actor_name}}</a>
     </div>
-
-
   </div>
 </div>

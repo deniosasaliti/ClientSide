@@ -9,6 +9,7 @@ import {AuthService} from "../../shared_services/httpService/auth.service";
 import {SerialInfoModel} from "./serialInfoModel";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Player} from "@vime/angular";
+import {FirstSharedService} from "../../shared_services/first-shared.service";
 
 
 
@@ -50,7 +51,8 @@ export class SerialInfoComponent implements OnInit {
   constructor(private modalService: NgbModal,
               private authService:AuthService,
               private activatedRouter:ActivatedRoute,
-              private router:Router) {
+              private router:Router,
+              private sharedService:FirstSharedService) {
 
   }
   // changingValue: Subject<any> = new Subject();
@@ -74,6 +76,7 @@ export class SerialInfoComponent implements OnInit {
     this.authService.getAllSerials(id).subscribe(data=>{
       this.serialModel = data;
       this.slides =  this.serialModel.actors
+      this.sharedService.subject.next(this.slides[0])
     })
 
 

@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {FirstSharedService} from "../../shared_services/first-shared.service";
+import {SerialModel} from "./serial.model";
 
 
 @Component({
@@ -11,6 +13,7 @@ export class SerialComponent implements OnInit {
 
 
   // @Input()  serialId:number;
+  @Input() serialModel:SerialModel;
 
   constructor(private activateRoute:ActivatedRoute) {
 
