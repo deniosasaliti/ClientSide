@@ -1,10 +1,34 @@
 <div class="card">
   <div class="card-body" style="color: white;background-color: #202020">
     <h3>{{name}}</h3>
-    <h6>{{short_about_actor}}</h6>
-    <h5>Born: October 23, 1986 (age 35 years), London, United Kingdom</h5>
-    <h5>Alma mater: Drama Centre London</h5>
-    <h5>Award: List of awards and nominations received by Emilia Clarke</h5>
-    <h5>Parents: Jennifer Clarke, Peter Clarke</h5>
+      <div style="display: table;width: 100%;">
+        <div  style="display: table-row">
+          <h5 class="pr-2" style="display: table-cell;padding-top: 15px">List of serials:</h5>
+          <div style="display: table-cell">
+            <div style="display: inline-block"    *ngFor="let serial of serialList2" >
+              <a style="padding: 5px"  href="">{{serial.originalName}}</a>
+            </div>
+          </div>
+        </div>
+        <div  style="display: table-row">
+          <h5 class="pr-2" style="display: table-cell;padding-top: 15px" >List of awards:</h5>
+          <div style="display: table-cell">
+            <div style="display: inline-block"  *ngFor="let award of awards">
+              <a style="padding: 5px" href="">{{award}}</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div  style="display: table-row">
+          <h5 class="pr-2" style="display: table-cell;padding-top: 15px" >short about actor:</h5>
+          <div style="display: table-cell">
+          <h5>{{short_about_actor}}</h5>
+          </div>
+        </div>
+
+
+      </div>
+
   </div>
 </div>

@@ -1,4 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AuthService} from "../../shared_services/httpService/auth.service";
+import {FirstSharedService} from "../../shared_services/first-shared.service";
+import {SerialModel} from "../serial/serial.model";
+import {map, tap} from "rxjs/operators";
+import {Player} from "@vime/angular";
 
 
 @Component({
@@ -8,13 +13,21 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  bundleFavorite:number = 3;
-  bundleRecommended:number = 4;
+  bundleFavorite:number = 5;
+  bundleRecommended:number = 5;
+  isLogin:boolean;
+  userId:number;
 
- favorite:string[] =[
-   '1',
 
- ];
+ followed:Array<SerialModel>
+
+
+ popular:string[]= [
+   '1r',
+   '2r',
+   '3r',
+   '4r'
+ ]
 
   recommended:string[] =[
     '1r',
@@ -26,16 +39,41 @@ export class SidebarComponent implements OnInit {
     '7r'
   ];
 
-  constructor() {
+  constructor(private  authService:AuthService,private firstSharedService:FirstSharedService) {
 
   }
 
   ngOnInit(): void {
 
+
+
+    this.followed = new Array<SerialModel>()
+
+
+
+    this.authService.authBehaviorSubject.subscribe(autModel=>{
+      this.isLogin = autModel.isLogin
+      if (this.isLogin){
+        this.firstSharedService.getAllSerialsByUserId(autModel.id).subscribe(data=>{
+          this.followed = data;
+        })
+      }
+
+    })
+
+
+
+
+
+
   }
 
   upFavorite(){
     this.bundleFavorite+=2;
+
+
+
+
 }
   upRecommended(){
     this.bundleRecommended+=2;
@@ -48,6 +86,8 @@ export class SidebarComponent implements OnInit {
   hideRecommended() {
     this.bundleRecommended-=2;
   }
+
+
 
 
 }

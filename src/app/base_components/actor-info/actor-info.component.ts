@@ -15,14 +15,19 @@ export class ActorInfoComponent implements OnInit {
     alma_mater:any;
     serials:Array<any>;
     awards:Array<any>;
+    serialList2:Array<any>
 
   ngOnInit(): void {
     this.sharedService.subject.subscribe(slider=>{
       this.name = slider.name;
-      this.short_about_actor = slider.short_about_actor;
-      this.alma_mater = slider.alma_mater;
+      this.short_about_actor = slider.shortAboutActor;
+      this.alma_mater = slider.almaMater;
       this.serials = slider.serials;
       this.awards = slider.awards
+      this.serialList2 = slider.serial
+
+      console.log(this.awards)
+
     })
   }
 

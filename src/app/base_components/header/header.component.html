@@ -19,12 +19,28 @@
 
 
 <!--      login and signup-->
-      <div class="mr-2">
-        <a routerLink="sign-up" class="btn btn-outline-success my-2 my-sm-0">Sign up</a>
+      <div *ngIf="!isLogin; else logoutButton" style="right: 20px;position: absolute">
+      <div style="display: inline-block" class="mr-2">
+        <a (click)="openModal(signupModal)" class="btn btn-outline-success my-2 my-sm-0">Sign up</a>
       </div>
-      <div class="mr-2">
-        <a routerLink="login" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
+      <div style="display: inline-block" class="mr-2">
+        <a (click)="openModal(loginModal)" class="btn btn-outline-success my-2 my-sm-0">Log in</a>
+      </div>
       </div>
     </div>
   </nav>
 </header>
+
+<ng-template #signupModal>
+  <app-signup></app-signup>
+</ng-template>
+
+<ng-template #loginModal>
+  <app-login></app-login>
+</ng-template>
+
+<ng-template #logoutButton>
+  <div style="right: 20px;position: absolute">
+    <a  (click)="logout()" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
+  </div>
+</ng-template>

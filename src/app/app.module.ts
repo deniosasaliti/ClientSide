@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {ActivatedRoute, RouterModule} from "@angular/router";
 import { SignupComponent } from './base_components/auth/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PostComponent } from './base_components/post/post.component';
 import { CommentComponent } from './base_components/comment/comment.component';
 import { PostsComponent } from './home_page_components/posts/posts.component';
@@ -35,6 +35,8 @@ import { NewsfeedPageInfoComponent } from './home_page_components/newsfeed-page-
 import { LastNewsItemComponent } from './base_components/last-news-item/last-news-item.component';
 import { MainPageComponent } from './home_page_components/main-page/main-page.component';
 import { PlayerComponent } from './base_components/player/player.component';
+import {NgxWebstorageModule} from "ngx-webstorage";
+import {TokenInterceptor} from "./interceptors/token-interceptor";
 
 
 
@@ -79,10 +81,17 @@ import { PlayerComponent } from './base_components/player/player.component';
     FormsModule,
     NgbPopoverModule,
     NgbModule,
-    PopoverModule
+    PopoverModule,
+    NgxWebstorageModule.forRoot()
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
