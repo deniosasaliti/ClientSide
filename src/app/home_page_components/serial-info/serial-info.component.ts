@@ -52,7 +52,8 @@ export class SerialInfoComponent implements OnInit {
               private authService:AuthService,
               private activatedRouter:ActivatedRoute,
               private router:Router,
-              private sharedService:FirstSharedService) {
+              private sharedService:FirstSharedService,
+              private firstSharedService:FirstSharedService) {
 
   }
   // changingValue: Subject<any> = new Subject();
@@ -73,7 +74,7 @@ export class SerialInfoComponent implements OnInit {
 
   ngOnInit(): void {
     let id:number   =   this.activatedRouter.snapshot.params['id']
-    this.authService.getAllSerials(id).subscribe(data=>{
+    this.firstSharedService.getAllSerialsById(id).subscribe(data=>{
       this.serialModel = data;
       this.slides =  this.serialModel.actors
       this.sharedService.subject.next(this.slides[0])

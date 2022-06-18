@@ -19,9 +19,15 @@ export class FirstSharedService {
     return this.httpClient.get(this.serverAddress + '/cont/getFrontPageInfo')
   }
 
-  getAllSerialsByUserId(id:any):Observable<any>{
+  getAllSerialsByUserIdForSideBar(id:any):Observable<any>{
     let param = new HttpParams().set('id', id);
 
+    return this.httpClient.post(this.serverAddress + '/cont/getAllSerialByIdForSideBar',param)
+  }
+
+  getAllSerialsById(id:any) : Observable<any>{
+    // let qwe: any = {'id': id};
+    let param = new HttpParams().set('id', id);
     return this.httpClient.post(this.serverAddress + '/cont/getAllSerialById',param)
   }
 

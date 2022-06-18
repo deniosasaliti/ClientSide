@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
     this.authService.authBehaviorSubject.subscribe(autModel=>{
       this.isLogin = autModel.isLogin
       if (this.isLogin){
-        this.firstSharedService.getAllSerialsByUserId(autModel.id).subscribe(data=>{
+        this.firstSharedService.getAllSerialsByUserIdForSideBar(autModel.id).subscribe(data=>{
           this.followed = data;
         })
       }

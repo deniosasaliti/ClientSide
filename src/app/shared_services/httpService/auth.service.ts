@@ -60,11 +60,7 @@ export class AuthService {
 
   }
 
-  getAllSerials(id:any) : Observable<any>{
-    // let qwe: any = {'id': id};
-    let param = new HttpParams().set('id', id);
-    return this.httpClient.post(this.serverAddress + '/auth/getPostById',param)
-  }
+
 
 
 
