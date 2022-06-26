@@ -12,8 +12,8 @@
                     (afterChange)="afterChange($event)"
                     (beforeChange)="beforeChange($event)">
 
-  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-    <app-actor-card  [actor_url]="slide.imageUrl" [actor_name]="slide.name"(click)="onClick(slide)" ></app-actor-card>
+  <div ngxSlickItem *ngFor="let actorModel of slides" class="slide">
+    <app-actor-card  [actor_url]="actorModel.imageUrl" [actor_name]="actorModel.name"(click)="onClick(actorModel)" ></app-actor-card>
   </div>
 
 

@@ -12,8 +12,12 @@ export class ActorCardComponent implements OnInit {
 
   @Input() actor_url:string;
   @Input() actor_name:string;
+  @ViewChild('wrapImage') wrapImage:ElementRef
+  @ViewChild('actorName') actorName:ElementRef
+  @ViewChild('actorInfoButton') actorInfoButton:ElementRef
   isUrlPresent:boolean= true
   isModerate:boolean;
+
   constructor(private modalService: NgbModal) {
 
   }
@@ -28,5 +32,19 @@ export class ActorCardComponent implements OnInit {
 
   onClick(content:any) {
     this.modalService.open(content, {  windowClass: 'dark-modal', size: 'm',centered: true });
+  }
+
+  onWrapMouseOver() {
+    this.actorInfoButton.nativeElement.style.visibility = 'visible'
+    this.wrapImage.nativeElement.style.filter = 'brightness(75%)'
+    this.actorName.nativeElement.style.color = 'green'
+    this.actorName.nativeElement.style.textDecoration = 'underline'
+
+  }
+
+  onWrapMouseLeave() {
+    this.wrapImage.nativeElement.style.filter = 'brightness(100%)'
+    this.actorName.nativeElement.style.color = 'white'
+    this.actorName.nativeElement.style.textDecoration = 'none'
   }
 }

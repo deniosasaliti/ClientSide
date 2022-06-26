@@ -28,13 +28,16 @@
 </ng-template>
 
 
-<div class="card   " style="width: 183px;height: 300px; margin: 2px">
-  <!-- Preview image figure-->
-  <button class="btn btn-lg btn-outline-primary"  *ngIf="isModerate"  (click)="onClick(content);$event.stopPropagation()" style="top: 50%;left: 20%;position: absolute;width: 60%;height: 50px;font-size: 15px;padding: 0">Редактировать</button>
-  <div class="card-body">
-    <img class="img-fluid rounded " src="{{actor_url}}" style="height: 80%" alt="..."/>
-    <div class="mt-2" style="text-align: center">
-      <a class="a-hover" >{{actor_name}}</a>
-    </div>
+<div style="cursor: pointer"  (mouseleave)="onWrapMouseLeave()" (mouseover)="onWrapMouseOver() ">
+  <div  class="card" style="width: 190px;height: 280px;">
+    <!-- Preview image figure-->
+    <!--  <button class="btn btn-lg btn-outline-primary"  *ngIf="isModerate"  (click)="onClick(content);$event.stopPropagation()" style="top: 50%;left: 20%;position: absolute;width: 60%;height: 50px;font-size: 15px;padding: 0">Редактировать</button>-->
+    <!--    <button #actorInfoButton class="btn btn-lg btn-outline-primary"  *ngIf="isModerate"  (click)="onClick(content);$event.stopPropagation()" style="top: 50%;left: 20%;position: absolute;width: 60%;height: 50px;font-size: 15px;padding: 0;visibility: hidden">Actor Info</button>-->
+    <h1 #actorInfoButton style="position: absolute;visibility: visible">QWE</h1>
+    <img #wrapImage class="img-fluid " style="height: 100%" src="{{actor_url}}"  alt="..."/>
+
+  </div>
+  <div class="mt-2" style="text-align: center">
+    <div #actorName class="mb-3"  style="font-size: 20px;color: white;cursor: pointer;overflow-wrap: break-word;width:200px" >{{actor_name}}</div>
   </div>
 </div>

@@ -1,116 +1,132 @@
 <div style="background-color: black">
-<div class="container">
-  <div class="qweqwe" style="color: white;" >
-    <app-strip-slider [slides]="slides"></app-strip-slider>
-
-<!--      <button class="qweqwe">-->
-<!--        <i class="fas fa-chevron-circle-left"></i>-->
-<!--      </button>-->
-
-
+<div class="container pb-2" style="background-color: #202020">
+  <div class="row" style="background-color: #202020;color: white;margin-top: 150px">
+    <div class="col-12 pb-2 pt-2">
+      <a style="width: 100%;height: 50px" class="btn btn-outline-success my-2 my-sm-0">Смотреть {{serialModel.originalName}}</a>
+    </div>
   </div>
-
-  <div>
-    <app-actor-info></app-actor-info>
-  </div>
-  <div style="background-color: #202020">
-    <app-translate-slider [slides]="translate" [serialList]="sites"></app-translate-slider>
-  </div>
-<div class="row" style="height: inherit;">
-  <div class="col-4" style="background-color: #202020">
+  <div class="row" style="height: 370px">
+    <div class="col-6" style="background-color: #202020;height: 420px">
       <div class="ml-2 mt-2">
-        <img style="width: 100%;height: 500px" class="mb-2" src="https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_FMjpg_UX1000_.jpg">
+        <img style="width: 100%;height: 300px" class="mb-2" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1105420/capsule_616x353.jpg?t=1583118085">
         <a style="width: 100%" (click)="openWindowCustomClass(content)" class="btn btn-outline-success my-2 my-sm-0">Смотреть трейлер</a>
       </div>
-  </div>
-  <div class="col-4" style="background-color: #202020;">
-  <div class="wrap" style="padding-right: 10px" >
-  <ul style="padding-left: 0">
-    <li style="display: table-row;">
-      <div class="field-label" >Оригинальное:</div>
-      <div class="field-text" >Game of Thrones</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Альтернативное:</div>
-      <div  class="field-text">фывфывфывфывфыв</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Рейтинг:</div>
-      <div  class="field-text">фывфывфыв</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Наш рейтинг:</div>
-      <div  class="field-text">ссссссссссссссссыы</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Статус:</div>
-      <div  class="field-text">Завершен</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Год:</div>
-      <div  class="field-text">2011 - 2019 (8 сезонов)</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Страна:</div>
-      <div  class="field-text">США, Великобритания</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Режиссер:</div>
-      <div  class="field-text">Дэвид Наттер, Алан Тейлор, Алекс Грейвз</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Сценарий:</div>
-      <div  class="field-text">Дэвид Бениофф, Джордж Р.Р. Мартин, Д.Б. Уайсс</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Продюссер:</div>
-      <div  class="field-text">Дэвид Бениофф, Д.Б. Уайсс, Джордж Р.Р. Мартин</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Оператор:</div>
-      <div  class="field-text">Анетт Хаелльмигк, Джонатан Фриман, Роберт МакЛаклен</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Композитор:</div>
-      <div  class="field-text">Рамин Джавади</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Художник:</div>
-      <div  class="field-text">Дебора Райли, Джемма Джексон, Филип Элтон</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Монтаж:</div>
-      <div  class="field-text">Кэти Вейланд, Фрэнсис Паркер, Криспин Грин</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Премьера:</div>
-      <div  class="field-text">17 апреля 2011</div>
-    </li>
-    <li style="display: table-row">
-      <div  class="field-label" >Длительность:</div>
-      <div  class="field-text">55 мин.</div>
-    </li>
-  </ul>
-  </div>
-  </div>
-  <div class="col-4" style="background-color: #202020;color: white;padding-left:0">
-    <h1 style="font-size: 13px;margin-top: 10px">Лучшие сайты для просмотра сериала</h1>
-    <div *ngFor="let audio of audios">
-
-
-    <div style="margin-top: 5px; ">
-    <app-audio-track [trackName]="audio.name"     [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)" (trackIntervalId)="setInterval($event)"></app-audio-track>
-<!--      <audio controls src="{{audio.url}}"></audio>-->
+    </div>
+    <div class="col-6" style="background-color: #202020;height: 370px">
+      <div class="wrap" style="padding-right: 10px;display: flex;flex-direction: column;height: 100%" >
+        <ul style="padding-left: 0;height: 370px">
+          <li style="display: table-row;">
+            <div class="field-label" >Оригинальное:</div>
+            <div class="field-text" >Game of Thrones</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Альтернативное:</div>
+            <div  class="field-text">фывфывфывфывфыв</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Рейтинг:</div>
+            <div  class="field-text">фывфывфыв</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Наш рейтинг:</div>
+            <div  class="field-text">ссссссссссссссссыы</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Статус:</div>
+            <div  class="field-text">Завершен</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Год:</div>
+            <div  class="field-text">2011 - 2019 (8 сезонов)</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Страна:</div>
+            <div  class="field-text">США, Великобритания</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Режиссер:</div>
+            <div  class="field-text">Дэвид Наттер, Алан Тейлор, Алекс Грейвз</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Сценарий:</div>
+            <div  class="field-text">Дэвид Бениофф, Джордж Р.Р. Мартин, Д.Б. Уайсс</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Продюссер:</div>
+            <div  class="field-text">Дэвид Бениофф, Д.Б. Уайсс, Джордж Р.Р. Мартин</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Оператор:</div>
+            <div  class="field-text">Анетт Хаелльмигк, Джонатан Фриман, Роберт МакЛаклен</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Композитор:</div>
+            <div  class="field-text">Рамин Джавади</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Художник:</div>
+            <div  class="field-text">Дебора Райли, Джемма Джексон, Филип Элтон</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Монтаж:</div>
+            <div  class="field-text">Кэти Вейланд, Фрэнсис Паркер, Криспин Грин</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Премьера:</div>
+            <div  class="field-text">17 апреля 2011</div>
+          </li>
+          <li style="display: table-row">
+            <div  class="field-label" >Длительность:</div>
+            <div  class="field-text">55 мин.</div>
+          </li>
+        </ul>
+      </div>
     </div>
 
+  </div>
+
+  <div class="mt-5"  style="color: white">
+    <app-strip-slider [slides]="slides"></app-strip-slider>
+  </div>
+
+<!--  <div>-->
+<!--    <app-actor-info></app-actor-info>-->
+<!--  </div>-->
+<!--  <div style="background-color: #202020">-->
+<!--    <app-translate-slider [slides]="translate" [serialList]="sites"></app-translate-slider>-->
+<!--  </div>-->
+
+
+
+  <div class="row pb-4" style="background-color:#202020">
+    <div class="col-6">
+
+      <div style="color: white">Плей лист</div>
+      <div *ngFor="let audio of audios">
+
+        <div style="margin-top: 5px; ">
+          <app-audio-track [trackName]="audio.name"     [trackUrl]="audio.url" (isTrackPlay)="isPlayT($event)" (trackIntervalId)="setInterval($event)"></app-audio-track>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-6">
+
     </div>
   </div>
-</div>
+
+
+
   <div style="color: white;border-top: 1px solid gray;height: inherit;width: 100%;background-color: #202020; padding: 10px">
-    События сериала разворачиваются в другом мире, где повсюду с людьми есть волшебные и причудливые существа. Когда-то, на просторе вестеросских правил династии Таргариенов, держали власть с помощью драконов, но так было ровно до того момента, когда Роберт в союзе с другими домами не поднимался и не свергал узурпатора с Эгоном со своим троном, отдавая свой народ на свободу. С тех пор прошло более десяти лет, и никаких восстаний и войн на просторах Семи Королевств не предвидится. Но Роберт чувствует приближающуюся опасность, особенно после смерти его правой руки человека-Хуана арены, который был отравлен кем-то.
+    </div>
 
-    Зная, что рядом с ним не осталось прокси, а только враги и коварный супруг: Серсея, пытаясь захватить власть и избавиться от нее, решает обратиться за помощью к старому другу и верному товарищу-Эддарду Старку, управляющему северными землями. С этой целью он отправляется в Винтерфелл со своей свитой. По прибытии он тут же начинает просить Эддарда помочь ему управлять страной, и, не имея возможности отвергнуть короля, соглашается, и в ближайшее время с детьми отправляется в Королевскую посадку, не зная, что переживет и как повлияет на его семью.
+
+  <div class="pr-4 pl-4 pb-4" style="color: white;background:#202020;">
+    События сериала разворачиваются в другом мире, где повсюду с людьми есть волшебные и причудливые существа. Когда-то, на просторе вестеросских правил династии Таргариенов, держали власть с помощью драконов, но так было ровно до того момента, когда Роберт в союзе с другими домами не поднимался и не свергал узурпатора с Эгоном со своим троном, отдавая свой народ на свободу. С тех пор прошло более десяти лет, и никаких восстаний и войн на просторах Семи Королевств не предвидится. Но Роберт чувствует приближающуюся опасность, особенно после смерти его правой руки человека-Хуана арены, который был отравлен кем-то.
   </div>
+  <div class="pr-4 pl-4" style="color: white;background:#202020;">
+    Зная, что рядом с ним не осталось прокси, а только враги и коварный супруг: Серсея, пытаясь захватить власть и избавиться от нее, решает обратиться за помощью к старому другу и верному товарищу-Эддарду Старку, управляющему северными землями. С этой целью он отправляется в Винтерфелл со своей свитой. По прибытии он тут же начинает просить Эддарда помочь ему управлять страной, и, не имея возможности отвергнуть короля, соглашается, и в ближайшее время с детьми отправляется в Королевскую посадку, не зная, что переживет и как повлияет на его семью.  </div>
+
 </div>
   </div>
 

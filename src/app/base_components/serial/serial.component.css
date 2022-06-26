@@ -1,18 +1,27 @@
-.flex-grow{
-  height: 100% !important;
-  width: 100% !important;
-}
-
-a:hover{
-  cursor: pointer;
-  text-align: center;
-}
+/*.flex-grow{*/
+/*  height: 100% !important;*/
+/*  width: 100% !important;*/
+/*}*/
 
 
-.a-hover:hover{
-  color: red;
-  cursor: pointer;
+
+.card{
+  border: none;
 }
+
+/*.card:hover{*/
+/*  -webkit-filter: brightness(85%);*/
+/*  -webkit-transition: all 10ms ease;*/
+/*  -moz-transition: all 10ms ease;*/
+/*  -o-transition: all 10ms ease;*/
+/*  -ms-transition: all 10ms ease;*/
+/*  transition: all 10ms ease;*/
+/*}*/
+
+/*.a-hover:hover{*/
+/*  color: red;*/
+/*  cursor: pointer;*/
+/*}*/
 
 
 #clickable{

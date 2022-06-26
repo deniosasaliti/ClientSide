@@ -1,15 +1,30 @@
 .card-list{
-  float: left;
+  text-align: left;
+  height: 100%;
+  width: 25%;
+  position: relative;
 }
+
+
+.container{
+  max-width: 830px;
+  padding-left: 7px;
+  padding-right: 7px;
+
+}
+
+
+
+
 
 #div_page{
   margin-top: 56px;
 }
-.flex-grow{
-  height: 100% !important;
-  width: 100% !important;
-}
+/*.flex-grow{*/
+/*  height: 100% !important;*/
+/*  width: 100% !important;*/
+/*}*/
 
-li{
-  float: left;
-}
+/*li{*/
+/*  float: left;*/
+/*}*/

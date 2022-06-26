@@ -4,7 +4,7 @@ export class SerialInfoModel{
   id:number
   description:string
   image_url:string
-  original_name:string
+  originalName:string
 
   premiere:Date
   rating:string
