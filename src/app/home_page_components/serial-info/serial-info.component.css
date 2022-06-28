@@ -1,3 +1,10 @@
+.avmWrap{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.avmWrap:hover{
+  overflow-y: visible;
+}
 
 .container{
   max-width: 1200px;
@@ -27,12 +34,13 @@
   left: inherit;
   height:700px;
   color: white;
-  overflow-y: visible;
+  overflow-y: hidden;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   padding-bottom: 60px;
+}
 
-
-
+.wrap:hover{
+  overflow-y: visible;
 }
 
 

@@ -1,0 +1,11 @@
+<div #cardWrap (mouseover)="onMouseWrapOver()" (mouseleave)="onMouseWrapLeave()">
+  <div class="card mt-2" style="width: 290px;height: 190px;cursor: pointer">
+<!--    <img #playImage  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM6_zxPGgnw-V4OnL1Lz6PpCXmCno2-GD8yQ&usqp=CAU"   style="position: absolute;width: 60%;height: 50px;font-size: 15px;padding: 0;visibility: hidden;z-index: 10;vertical-align: middle">-->
+    <img #avmImage class="img-fluid mw-100 mh-100" style="height: 100%" src="{{avmUrl}}">
+
+  </div>
+  <div class="mt-2" style="text-align: center" >
+    <div #avmName class="mb-3"  style="font-size: 20px;color: white;cursor: pointer;overflow-wrap: break-word;width:inherit" >avm_mane</div>
+  </div>
+</div>
+

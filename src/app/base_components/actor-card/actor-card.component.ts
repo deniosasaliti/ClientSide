@@ -36,13 +36,14 @@ export class ActorCardComponent implements OnInit {
 
   onWrapMouseOver() {
     this.actorInfoButton.nativeElement.style.visibility = 'visible'
-    this.wrapImage.nativeElement.style.filter = 'brightness(75%)'
+    this.wrapImage.nativeElement.style.filter = 'brightness(20%)'
     this.actorName.nativeElement.style.color = 'green'
     this.actorName.nativeElement.style.textDecoration = 'underline'
 
   }
 
   onWrapMouseLeave() {
+    this.actorInfoButton.nativeElement.style.visibility = 'hidden'
     this.wrapImage.nativeElement.style.filter = 'brightness(100%)'
     this.actorName.nativeElement.style.color = 'white'
     this.actorName.nativeElement.style.textDecoration = 'none'

@@ -66,6 +66,7 @@ export class SerialInfoComponent implements OnInit {
 
 
   slides: Array<any>;
+  amvArray: Array<any>;
 
 
 
@@ -73,6 +74,14 @@ export class SerialInfoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.amvArray = [
+      {url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAMK2Mn69JABK4q1QzqIk75icliSnFZmUBKdcU-UM8hattvSb-omdn16q_ozUA1fdqeA&usqp=CAU',name:''},
+      {url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPG6nkI0vugHF-TGrBjlBvULhfZVM649FEkORUviDp-TNoUJnV4MnxublmC2g9V72X-lE&usqp=CAU',name:''},
+      {url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIyvF_j6NHA16A5izkF_frM5Q1NjWk7gJ8Y89yQKccN8ptP22xhRuUWoqEmJuaOHwz9Ao&usqp=CAU',name:''},
+      {url:'',name:''},
+      {url:'',name:''},
+      {url:'',name:''}
+    ]
     let id:number   =   this.activatedRouter.snapshot.params['id']
     this.firstSharedService.getAllSerialsById(id).subscribe(data=>{
       this.serialModel = data;
@@ -153,6 +162,8 @@ export class SerialInfoComponent implements OnInit {
   //   this.currentTrackAudio.currentTime = value;
   //
   // }
+  slideConfig ={"slidesToShow": 4, "slidesToScroll": 2,"infinite": false,arrows: true};
+
 
 
   stopC22() {
@@ -183,4 +194,23 @@ export class SerialInfoComponent implements OnInit {
   }
 
 
+  slickInit(e:any) {
+    console.log('slick initialized');
+
+  }
+
+  breakpoint(e:any) {
+
+  }
+
+  afterChange(e:any) {
+    console.log('afterChange');
+
+
+  }
+
+  beforeChange(e:any) {
+    console.log('beforeChange');
+
+  }
 }

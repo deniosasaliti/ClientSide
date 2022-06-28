@@ -37,6 +37,7 @@ import { MainPageComponent } from './home_page_components/main-page/main-page.co
 import { PlayerComponent } from './base_components/player/player.component';
 import {NgxWebstorageModule} from "ngx-webstorage";
 import {TokenInterceptor} from "./interceptors/token-interceptor";
+import { AmvCardComponent } from './base_components/amv-card/amv-card.component';
 
 
 
@@ -67,7 +68,8 @@ import {TokenInterceptor} from "./interceptors/token-interceptor";
     NewsfeedPageInfoComponent,
     LastNewsItemComponent,
     MainPageComponent,
-    PlayerComponent
+    PlayerComponent,
+    AmvCardComponent
   ],
   imports: [
     BrowserModule,

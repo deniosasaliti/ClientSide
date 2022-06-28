@@ -110,11 +110,28 @@
 
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-6" style="height: 610px">
 
     </div>
   </div>
 
+  <div>
+    <ngx-slick-carousel class="carousel"
+
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig"
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)">
+
+      <div ngxSlickItem *ngFor="let amv of amvArray" class="slide">
+        <app-amv-card [avmUrl]="amv.url" ></app-amv-card>
+      </div>
+
+
+    </ngx-slick-carousel>
+  </div>
 
 
   <div style="color: white;border-top: 1px solid gray;height: inherit;width: 100%;background-color: #202020; padding: 10px">

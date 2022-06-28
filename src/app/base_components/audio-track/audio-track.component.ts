@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Subject} from "rxjs";
 import {Player} from "@vime/angular";
 
@@ -15,6 +15,7 @@ export class AudioTrackComponent implements  OnInit{
   @Output() trackIntervalId = new EventEmitter<any>();
   @Input() changing: Subject<any>;
   @ViewChild('input') input!: Input;
+  @ViewChild('canvasElement') canvasElement!:ElementRef;
 
 
 
@@ -46,6 +47,21 @@ export class AudioTrackComponent implements  OnInit{
 
   ngOnInit(): void {
     this.audio = new Audio(this.trackUrl)
+
+
+    // Set up audio context
+
+    const audioContext = new AudioContext();
+
+
+
+
+
+
+
+
+
+
 
     // this.audio = new Audio(this.trackUrl)
 
