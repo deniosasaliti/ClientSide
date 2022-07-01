@@ -8,25 +8,52 @@
 </ng-template>
 
 
-<div style="display: table-row;">
+<div (mouseover)="showHiddenBlock()" (mouseleave)="hiddeHiddenBlock()" style="display: table-row;">
     <div   style="padding-right: 20px;display: table-cell;height: 60px;" *ngIf="isPlay && !audio.paused; else playButton" >
       <button class="btn btn-outline-success my-2 my-sm-0" style="border-radius: 40%"  (click)="stopC()" >
         <i class="fas fa-stop"></i>
       </button>
     </div>
+  <h1  style="font-size: 15px;color: white;display: table-cell;padding-right: 10px">track_information</h1>
 
-    <div  style="display: inline-block;">
-      <div>
-        <h1 style="font-size: 15px;color: white">track_name......</h1>
-        <input id="bar" #input   class="bar" style="width: 200px; top: 10px; position: relative;" type="range"  min="0"     max="100" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
-      </div>
-    </div>
+<div style="display: table-cell">
+  <div  #hiddenBlock style="display: table-row;visibility: hidden;">
+    <div #inputBlock   style="display: inline-block;visibility: hidden">
+      <input id="bar" #input   class="bar" style="width: 500px; top: 10px; position: relative;" type="range"  min="0"     max="100" value="{{sliderVal}}"      [(ngModel)]="sliderVal" (change)="changeTime(sliderVal)">
+  </div>
+
+  <div   style="display: table-cell; padding-left: 150px;">
+    <button    style="background-color: #202020;border: none">
+      <i name="heart"      style="color: green;cursor: pointer" class="fa fa-heart"></i>
+    </button>
+  </div>
+  <div style="display: table-cell;color:white;padding-left: 5px">
+    5625
+  </div>
 
 
+  <div style="display: table-cell; padding-left: 10px;">
+    <button style="background-color: #202020;border: none">
+      <i name="brokenHeart" style="color: green;" class="fa fa-heart-broken"></i>
+    </button>
+  </div>
 
+  <div style="display: table-cell;color:white;padding-left: 5px;padding-right: 15px">
+    201
+  </div>
 
-
-
+</div>
+</div>
+  <div style="display: inline-block;padding-right: 15px">
+    <button  name="ring" style="background-color: #202020;border-color: #9cff3c;border-radius: 40%">
+      <i style="color: green" class="fa fa-plus"></i>
+    </button>
+  </div>
+  <div style="display: inline-block">
+    <button name="ring" style="background-color: #202020;border-color: #9cff3c;border-radius: 40%">
+      <i style="color: green" class="fa fa-download"></i>
+    </button>
+  </div>
 
 
 </div>

@@ -16,6 +16,8 @@ export class AudioTrackComponent implements  OnInit{
   @Input() changing: Subject<any>;
   @ViewChild('input') input!: Input;
   @ViewChild('canvasElement') canvasElement!:ElementRef;
+  @ViewChild('hiddenBlock') hiddenBlock!:ElementRef;
+  @ViewChild('inputBlock') inputBlock!:ElementRef;
 
 
 
@@ -46,12 +48,56 @@ export class AudioTrackComponent implements  OnInit{
 
 
   ngOnInit(): void {
+    let heart = document.getElementsByName('heart');
+    let brokenHeart = document.getElementsByName('brokenHeart');
+    let rigButton = document.getElementsByName('ring');
+
+    rigButton.forEach((e)=>{
+      e.addEventListener('mouseover',()=>{
+        e.style.borderColor = 'blue'
+      })
+    })
+
+    rigButton.forEach((e)=>{
+      e.addEventListener('mouseleave',()=>{
+        e.style.borderColor = '#9cff3c'
+      })
+    })
+
+    heart.forEach((e)=>{
+      e.addEventListener('mouseover',()=>{
+        e.style.color = 'red'
+      })
+    })
+
+    heart.forEach((e)=>{
+      e.addEventListener('mouseleave',()=>{
+        e.style.color = 'green'
+      })
+    })
+
+    brokenHeart.forEach((e)=>{
+      e.addEventListener('mouseover',()=>{
+        e.style.color = 'red'
+      })
+    })
+
+    brokenHeart.forEach((e)=>{
+      e.addEventListener('mouseleave',()=>{
+        e.style.color = 'green'
+      })
+    })
+
+
     this.audio = new Audio(this.trackUrl)
 
 
     // Set up audio context
 
     const audioContext = new AudioContext();
+
+
+
 
 
 
@@ -93,7 +139,7 @@ export class AudioTrackComponent implements  OnInit{
   }
 
   playQ() {
-
+    this.inputBlock.nativeElement.style.visibility = 'visible'
     if (this.audio.ended){
         clearInterval(this.idInterval)
         this.sliderVal =0;
@@ -246,6 +292,7 @@ export class AudioTrackComponent implements  OnInit{
 
 
   stopC() {
+    this.inputBlock.nativeElement.style.visibility  = 'hidden'
     // this.isPlay = false;
     // @ts-ignore
     // this.sliderVal = Math.round(this.audio.currentTime*100/this.input.nativeElement.value);
@@ -289,4 +336,12 @@ export class AudioTrackComponent implements  OnInit{
 
   }
 
+
+  showHiddenBlock() {
+    this.hiddenBlock.nativeElement.style.visibility = 'visible'
+  }
+
+  hiddeHiddenBlock() {
+    this.hiddenBlock.nativeElement.style.visibility = 'hidden'
+  }
 }
