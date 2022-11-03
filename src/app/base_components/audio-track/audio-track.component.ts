@@ -48,48 +48,11 @@ export class AudioTrackComponent implements  OnInit{
 
 
   ngOnInit(): void {
-    let heart = document.getElementsByName('heart');
-    let brokenHeart = document.getElementsByName('brokenHeart');
-    let rigButton = document.getElementsByName('ring');
 
-    rigButton.forEach((e)=>{
-      e.addEventListener('mouseover',()=>{
-        e.style.borderColor = 'blue'
-      })
-    })
-
-    rigButton.forEach((e)=>{
-      e.addEventListener('mouseleave',()=>{
-        e.style.borderColor = '#9cff3c'
-      })
-    })
-
-    heart.forEach((e)=>{
-      e.addEventListener('mouseover',()=>{
-        e.style.color = 'red'
-      })
-    })
-
-    heart.forEach((e)=>{
-      e.addEventListener('mouseleave',()=>{
-        e.style.color = 'green'
-      })
-    })
-
-    brokenHeart.forEach((e)=>{
-      e.addEventListener('mouseover',()=>{
-        e.style.color = 'red'
-      })
-    })
-
-    brokenHeart.forEach((e)=>{
-      e.addEventListener('mouseleave',()=>{
-        e.style.color = 'green'
-      })
-    })
 
 
     this.audio = new Audio(this.trackUrl)
+    this.startHandler();
 
 
     // Set up audio context
@@ -292,14 +255,14 @@ export class AudioTrackComponent implements  OnInit{
 
 
   stopC() {
-    this.inputBlock.nativeElement.style.visibility  = 'hidden'
+
     // this.isPlay = false;
     // @ts-ignore
     // this.sliderVal = Math.round(this.audio.currentTime*100/this.input.nativeElement.value);
 
     // this.sliderVal = this.audio.currentTime
 
-        console.log('SSSSSSSSSSSSSSSSSSSSSSS')
+
 
               if (this.play1!=undefined) {
                 this.play1.then(()=>{
@@ -343,5 +306,58 @@ export class AudioTrackComponent implements  OnInit{
 
   hiddeHiddenBlock() {
     this.hiddenBlock.nativeElement.style.visibility = 'hidden'
+  }
+
+ private startHandler(){
+    let heart = document.getElementsByName('heart');
+    let brokenHeart = document.getElementsByName('brokenHeart');
+    let rigButton = document.getElementsByName('ring');
+
+    this.audio.addEventListener('play',()=>{
+      this.inputBlock.nativeElement.style.visibility = 'visible'
+    })
+   this.audio.addEventListener('stop',()=>{
+     this.inputBlock.nativeElement.style.visibility = 'hidden'
+   })
+   this.audio.addEventListener('pause',()=>{
+     this.inputBlock.nativeElement.style.visibility = 'hidden'
+   })
+
+
+    rigButton.forEach((e)=>{
+      e.addEventListener('mouseover',()=>{
+        e.style.borderColor = 'blue'
+      })
+    })
+
+    rigButton.forEach((e)=>{
+      e.addEventListener('mouseleave',()=>{
+        e.style.borderColor = '#9cff3c'
+      })
+    })
+
+    heart.forEach((e)=>{
+      e.addEventListener('mouseover',()=>{
+        e.style.color = 'red'
+      })
+    })
+
+    heart.forEach((e)=>{
+      e.addEventListener('mouseleave',()=>{
+        e.style.color = 'green'
+      })
+    })
+
+    brokenHeart.forEach((e)=>{
+      e.addEventListener('mouseover',()=>{
+        e.style.color = 'red'
+      })
+    })
+
+    brokenHeart.forEach((e)=>{
+      e.addEventListener('mouseleave',()=>{
+        e.style.color = 'green'
+      })
+    })
   }
 }

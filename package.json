@@ -40,14 +40,15 @@
     "ngx-plyr": "^4.0.0",
     "ngx-slick-carousel": "^0.5.1",
     "ngx-smart-popover": "^1.4.0",
+    "ngx-socket-io": "^3.2.0",
+    "ngx-webstorage": "5.0.0",
     "node-webvtt": "^1.9.3",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "webvtt-parser": "^2.1.2",
-    "zone.js": "~0.11.4",
-    "ngx-webstorage": "5.0.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.9",

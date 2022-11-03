@@ -38,6 +38,8 @@ import { PlayerComponent } from './base_components/player/player.component';
 import {NgxWebstorageModule} from "ngx-webstorage";
 import {TokenInterceptor} from "./interceptors/token-interceptor";
 import { AmvCardComponent } from './base_components/amv-card/amv-card.component';
+import { RoomComponent } from './base_components/room/room.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 
 
@@ -69,7 +71,8 @@ import { AmvCardComponent } from './base_components/amv-card/amv-card.component'
     LastNewsItemComponent,
     MainPageComponent,
     PlayerComponent,
-    AmvCardComponent
+    AmvCardComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
@@ -84,8 +87,7 @@ import { AmvCardComponent } from './base_components/amv-card/amv-card.component'
     NgbPopoverModule,
     NgbModule,
     PopoverModule,
-    NgxWebstorageModule.forRoot()
-
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [
     {
@@ -96,4 +98,5 @@ import { AmvCardComponent } from './base_components/amv-card/amv-card.component'
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
